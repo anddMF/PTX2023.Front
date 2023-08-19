@@ -8,7 +8,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { HomeHubComponent } from './home/components/home-hub/home-hub.component';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { HomeHubComponent } from './home/components/home-hub/home-hub.component'
     MatSlideToggleModule,
     MatButtonModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule, 
+    MatSelectModule,
+    NgFor, 
+    MatInputModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

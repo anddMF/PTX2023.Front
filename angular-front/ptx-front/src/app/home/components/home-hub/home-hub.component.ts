@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-hub.component.css']
 })
 export class HomeHubComponent {
+  dropdownList = [
+    'popularity',
+    'date desc',
+    'date asc'
+  ]
+
+  constructor() { }
+
+  log(message: string){
+    console.log(message)
+  }
 
 }

@@ -1,5 +1,48 @@
-<div class="bg-primary col-md-3 mx-auto">
-    <p>home-hub works!</p>
-    <br><br><br>
-</div>
+<div class="hub-container">
+    <div class="p-5 m-5 bg-white"></div>
 
+    <div class="panels-row">
+        <div class="col-md-3 p-2 col-sm-10 col-12">
+            <div class="rounded bg-grey text-white shadow p-2">
+
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" class="form-control search-input" placeholder="search with keywords">
+                    <div class="input-group-append">
+                        <button class="btn btn-warning search-btn" type="button"><mat-icon
+                                fontIcon="search"></mat-icon></button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="col-md-6">sort by:</p>
+                    <div class="col-md-6">
+                        <div class="dropdown text-center col-12">
+                            <button class="btn btn-secondary btn-sm bg-black-2 border-0 col-12 shadow"
+                                style="border-radius: 10px;" type="button">
+                                {{ dropdownList[0] }}
+                                <mat-icon class="align-self-end" fontIcon="arrow_drop_down"></mat-icon>
+                            </button>
+                            <div class="dropdown-content">
+                                <p class="dropdown-item p-1 text-center" *ngFor="let item of dropdownList"
+                                    (click)="log('clicou '+ item)">{{item}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="p-2 col-md-6 col-sm-10 col-12">
+            <div class="rounded bg-secondary shadow">
+                <p>segunda</p>
+                <br><br><br>
+            </div>
+        </div>
+        <div class="p-2 col-md-3 col-sm-10 col-12">
+            <div class="rounded bg-danger shadow">
+                <p>terceira</p>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</div>
