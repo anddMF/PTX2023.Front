@@ -6,19 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-hub.component.css']
 })
 export class HomeHubComponent {
-  dropdownList = [
+  dropdownSortList = [
     'popularity',
     'date desc',
     'date asc'
-  ]
+  ];
 
-  dropdownSelected: string = this.dropdownList[0];
+  sortType = '';
 
   constructor() { }
 
-  changeDropdownSelected(toSelect: string){
-    console.log(toSelect)
-    this.dropdownSelected = toSelect;
+  changeSortType(selected: string) {
+    this.sortType = selected
   }
 
 }

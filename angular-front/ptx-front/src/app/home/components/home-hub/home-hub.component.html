@@ -16,21 +16,10 @@
                 <div class="row-flex">
                     <label class="col-12 col-md-4 col-sm-10 dropdown-label">sort by:</label>
                     <div class="col-12 col-md-8 col-sm-10">
-
-                        <div class="dropdown text-center col-12">
-                            <button class="btn btn-secondary btn-s bg-black-2 border-0 col-12 shadow" type="button">
-                                {{ dropdownSelected }}
-                                <mat-icon class="align-self-end" fontIcon="arrow_drop_down"></mat-icon>
-                            </button>
-                            <div class="dropdown-content">
-                                <h5 class="dropdown-item p-1 text-center" *ngFor="let item of dropdownList"
-                                    (click)="changeDropdownSelected(item)">{{ item }}</h5>
-                            </div>
-                        </div>
-
+                        <app-dropdown-basic [dropdownList]="dropdownSortList" (selected)="changeSortType($event)"></app-dropdown-basic>
                     </div>
-
                 </div>
+
                 <br><br><br>
             </div>
         </div>

@@ -14,11 +14,13 @@ import { MatInputModule } from '@angular/material/input';
 import { HomeHubComponent } from './home/components/home-hub/home-hub.component';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { DropdownBasicComponent } from './shared/components/dropdown-basic/dropdown-basic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeHubComponent
+    HomeHubComponent,
+    DropdownBasicComponent
   ],
   imports: [
     BrowserModule,

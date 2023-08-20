@@ -1,0 +1,10 @@
+<div class="dropdown text-center col-12">
+    <button class="btn btn-secondary bg-black-2 border-0 col-12 shadow" type="button">
+        {{ dropdownSelected }}
+        <mat-icon class="align-self-end" fontIcon="arrow_drop_down"></mat-icon>
+    </button>
+    <div class="dropdown-content">
+        <h5 class="dropdown-item p-1 text-center" *ngFor="let item of dropdownList"
+            (click)="changeDropdownSelected(item)">{{ item }}</h5>
+    </div>
+</div>
