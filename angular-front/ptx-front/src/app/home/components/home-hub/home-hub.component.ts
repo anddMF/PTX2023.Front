@@ -12,10 +12,13 @@ export class HomeHubComponent {
     'date asc'
   ]
 
+  dropdownSelected: string = this.dropdownList[0];
+
   constructor() { }
 
-  log(message: string){
-    console.log(message)
+  changeDropdownSelected(toSelect: string){
+    console.log(toSelect)
+    this.dropdownSelected = toSelect;
   }
 
 }
