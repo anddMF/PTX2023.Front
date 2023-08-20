@@ -20,6 +20,13 @@
                     </div>
                 </div>
 
+                <div class="row-flex mt-3">
+                    <label class="col-12 col-md-4 col-sm-10 dropdown-label">country:</label>
+                    <div class="col-12 col-md-8 col-sm-10">
+                        <app-dropdown-basic [dropdownList]="dropdownCountryList" (selected)="changeCountry($event)"></app-dropdown-basic>
+                    </div>
+                </div>
+
                 <br><br><br>
             </div>
         </div>

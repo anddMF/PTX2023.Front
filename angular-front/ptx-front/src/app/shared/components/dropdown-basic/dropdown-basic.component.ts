@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Dropdown } from '../../models/dropdown.model';
 
 @Component({
   selector: 'app-dropdown-basic',
@@ -6,10 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./dropdown-basic.component.css']
 })
 export class DropdownBasicComponent {
-  @Input() dropdownList: string[];
-  @Output() selected = new EventEmitter<string>();
+  @Input() dropdownList: Dropdown[];
+  @Output() selected = new EventEmitter<Dropdown>();
 
-  dropdownSelected: string = '';
+  dropdownSelected: Dropdown;
 
   constructor() {
   }
@@ -21,7 +22,7 @@ export class DropdownBasicComponent {
     
   }
 
-  changeDropdownSelected(toSelect: string){
+  changeDropdownSelected(toSelect: Dropdown){
     console.log(toSelect)
     this.dropdownSelected = toSelect;
     this.selected.emit(toSelect)
