@@ -39,3 +39,9 @@ mat-icon {
   font-weight: bold;
   align-self: center!important;
 }
+
+.selected-category {
+  background-color: var(--blue-2) !important;
+  border-width: 1px;
+  border-color: black;
+}
