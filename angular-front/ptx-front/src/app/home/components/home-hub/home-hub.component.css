@@ -36,6 +36,6 @@ mat-icon {
 .dropdown-label {
   vertical-align: middle; 
   font-size: medium; 
-  font-weight: lighter;
+  font-weight: bold;
   align-self: center!important;
 }

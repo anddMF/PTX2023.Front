@@ -16,14 +16,23 @@
                 <div class="row-flex">
                     <label class="col-12 col-md-4 col-sm-10 dropdown-label">sort by:</label>
                     <div class="col-12 col-md-8 col-sm-10">
-                        <app-dropdown-basic [dropdownList]="dropdownSortList" (selected)="changeSortType($event)"></app-dropdown-basic>
+                        <app-dropdown-basic [dropdownList]="dropdownSortList"
+                            (selected)="changeSortType($event)"></app-dropdown-basic>
                     </div>
                 </div>
 
                 <div class="row-flex mt-3">
                     <label class="col-12 col-md-4 col-sm-10 dropdown-label">country:</label>
                     <div class="col-12 col-md-8 col-sm-10">
-                        <app-dropdown-basic [dropdownList]="dropdownCountryList" (selected)="changeCountry($event)"></app-dropdown-basic>
+                        <app-dropdown-basic [dropdownList]="dropdownCountryList"
+                            (selected)="changeCountry($event)"></app-dropdown-basic>
+                    </div>
+                </div>
+
+                <div class="row-flex mt-3">
+                    <label class="col-12 dropdown-label">categories:</label>
+                    <div class="row-flex align-content-center p-2 bg-secodary col-12">
+                        <button *ngFor="let category of categories" [ngClass]="{'bg-blue-2': category.active === true }" (click)="setActiveCategory(category)" class="btn bg-blue-1 text-white btn-sm mx-auto col-5 mt-2 mr-2">{{ category.name }}</button>
                     </div>
                 </div>
 

@@ -34,3 +34,11 @@ body {
 .bg-grey {
     background-color: var(--background-grey) !important;
 }
+
+.bg-blue-1 {
+    background-color: var(--blue-1) !important;
+}
+
+.bg-blue-2 {
+    background-color: var(--blue-2) !important;
+}
