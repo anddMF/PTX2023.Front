@@ -8,23 +8,21 @@ import { Dropdown } from '../../models/dropdown.model';
 })
 export class DropdownBasicComponent {
   @Input() dropdownList: Dropdown[];
+  @Input() placeholder: string = ''
   @Output() selected = new EventEmitter<Dropdown>();
 
-  dropdownSelected: Dropdown;
+  selectedText: string;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.dropdownSelected = this.dropdownList[0];
-    
+    this.selectedText = !this.placeholder ? this.dropdownList[0].text : this.placeholder;
   }
 
-  changeDropdownSelected(toSelect: Dropdown){
+  changeDropdownSelected(toSelect: Dropdown) {
     console.log(toSelect)
-    this.dropdownSelected = toSelect;
+    this.selectedText = toSelect.text;
     this.selected.emit(toSelect)
   }
 }

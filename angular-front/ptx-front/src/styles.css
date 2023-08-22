@@ -42,3 +42,7 @@ body {
 .bg-blue-2 {
     background-color: var(--blue-2) !important;
 }
+
+.bg-yellow-1 {
+    background-color: var(--yellow-1) !important;
+}

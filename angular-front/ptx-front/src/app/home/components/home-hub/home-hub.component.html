@@ -32,11 +32,23 @@
                 <div class="row-flex mt-3">
                     <label class="col-12 dropdown-label">categories:</label>
                     <div class="row-flex align-content-center p-2 bg-secodary col-12">
-                        <button *ngFor="let category of categories" [ngClass]="{'selected-category': category.active === true }" (click)="setActiveCategory(category)" class="btn bg-blue-1 text-white btn-sm mx-auto col-5 mt-2 mr-2">{{ category.name }}</button>
+                        <button *ngFor="let category of categories"
+                            [ngClass]="{'selected-category': category.active === true }"
+                            (click)="setActiveCategory(category)"
+                            class="btn bg-blue-1 text-white btn-sm mx-auto col-5 mt-2 mr-2">{{ category.name }}</button>
                     </div>
                 </div>
 
-                <br><br><br>
+                <div class="row-flex mt-4">
+                    <button class="btn bg-black-2 mx-auto col-5 text-white" (click)="cleanFilters()" style="font-weight: bold;">
+                        clean
+                        <mat-icon fontIcon="delete"></mat-icon>
+                    </button>
+                    <button class="btn bg-yellow-1 mx-auto col-5" style="font-weight: bold;">
+                        search
+                        <mat-icon fontIcon="search"></mat-icon>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="p-2 col-md-6 col-sm-10 col-12">

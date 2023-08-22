@@ -49,4 +49,8 @@ export class HomeHubComponent {
     clickedCategory.active = !clickedCategory.active;
   }
 
+  cleanFilters() {
+    this.categories.forEach(x => x.active = false)
+  }
+
 }
