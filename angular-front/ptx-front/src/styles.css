@@ -12,6 +12,19 @@ body {
     font-family: "Montserrat", "Helvetica Neue", sans-serif !important;
 }
 
+p,
+h1,
+h2,
+h3,
+h5,
+h6 {
+    font-family: "Montserrat", "Helvetica Neue", sans-serif !important;
+}
+
+.f-montserrat {
+    font-family: "Montserrat", "Helvetica Neue", sans-serif !important;
+}
+
 .row-flex {
     display: flex;
     flex-wrap: wrap;

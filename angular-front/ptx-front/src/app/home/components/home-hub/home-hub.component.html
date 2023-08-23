@@ -35,25 +35,52 @@
                         <button *ngFor="let category of categories"
                             [ngClass]="{'selected-category': category.active === true }"
                             (click)="setActiveCategory(category)"
-                            class="btn bg-blue-1 text-white btn-sm mx-auto col-5 mt-2 mr-2">{{ category.name }}</button>
+                            class="btn col-5 mt-2 mx-auto bg-blue-1 text-white btn-sm">{{ category.name }}</button>
                     </div>
                 </div>
 
                 <div class="row-flex mt-4">
-                    <button class="btn bg-black-2 mx-auto col-5 text-white" (click)="cleanFilters()" style="font-weight: bold;">
+                    <button class="btn col-5 mx-auto bg-black-2 text-white fw-bold" (click)="cleanFilters()">
                         clean
                         <mat-icon fontIcon="delete"></mat-icon>
                     </button>
-                    <button class="btn bg-yellow-1 mx-auto col-5" style="font-weight: bold;">
+                    <button class="btn col-5 mx-auto bg-yellow-1  fw-bold">
                         search
                         <mat-icon fontIcon="search"></mat-icon>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="p-2 col-md-6 col-sm-10 col-12">
-            <div class="rounded bg-secondary shadow">
-                <p>segunda</p>
+
+        <!-- NEWS FEED -->
+        <div class="col-md-6 col-sm-10 col-12 p-2">
+            <div *ngFor="let obj of mockNews" class="rounded bg-grey text-white mb-2 shadow p-3">
+                <div class="row-flex">
+                    <div class="col-3 p-1">
+                        <img [src]="obj.image" alt="Girl in a jacket" style="width: 100%; border-radius: 10px;">
+                    </div>
+
+                    <!-- NEWS TEXT -->
+                    <div class="col-7 p-1 bg-pimary">
+                        <h4 class="f-montserrat fw-bold">{{ obj.title }}</h4>
+
+                        {{ obj.description }}
+                    </div>
+
+                    <!-- NEWS SIDE BUTTONS -->
+                    <div class="col-2 p-1">
+                        <button class="btn btn-sm col-11 offset-md-1 ml-auto news-button">
+                            source <mat-icon fontIcon="feed"></mat-icon>
+                        </button>
+                        <button class="btn btn-sm offset-md-1 col-11 mt-3 news-button">
+                            share <mat-icon fontIcon="share"></mat-icon>
+                        </button>
+                        <button class="btn btn-sm offset-md-1 col-11 mt-3 news-button">
+                            save <mat-icon fontIcon="bookmark"></mat-icon>
+                        </button>
+                    </div>
+                </div>
+
                 <br><br><br>
             </div>
         </div>
