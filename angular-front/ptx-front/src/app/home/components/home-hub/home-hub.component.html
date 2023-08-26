@@ -85,25 +85,8 @@
             </div>
         </div>
         <div class="p-2 col-md-3 col-sm-10 col-12 mx-sm-auto">
-            <div class="rounded bg-grey shadow">
-                <!-- TODO: apply responsive on the columns -->
-                <!-- TODO: new component for weather -->
-                <div class="row-flex p-2">
-                    <div class="col-3 rounded"> <img src="/assets/images/weather-icons/we-cloudy.png" alt="weather image" style="width: 90%;"> </div>
-                    <div class="col-4 text-center p-1" style="word-wrap: break-word; display: table;">
-                         <h1 class="weather-lg-temperature">23°</h1>
-                    </div>
-                    <div class="col-5 text-center p-1 d-table">
-                        <h4 class="fw-bold d-table-cell" style="vertical-align: middle;">partly sunny <br> <mat-icon fontIcon="location_on"></mat-icon> montreal</h4>
-                    </div>
-                </div>
-                <div class="row-flex p-2 fw-bold d-table bg-white" style="vertical-align: middle;">
-                    <div class="col-4 text-start bg- d-table-cell" style="vertical-align: middle;"> 3pm</div>
-                    <div class="col-4 text-center bg--1 d-table-cell" style="vertical-align: middle;"><img src="/assets/images/weather-icons/we-sunny.png" alt="weather image" style="width: 20%;"> 18°</div>
-                    <div class="col-4 text-end bg- d-table-cell" style="vertical-align: middle;">sunny</div>
-                </div>
-                <br><br><br>
-            </div>
+            <app-weather-card></app-weather-card>
+            
             <div class="rounded bg-danger mt-2 shadow">
                 <p>terceira</p>
                 <br><br><br>

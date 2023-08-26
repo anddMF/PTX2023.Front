@@ -79,5 +79,4 @@ export class HomeHubComponent {
   cleanFilters() {
     this.categories.forEach(x => x.active = false)
   }
-
 }

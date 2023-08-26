@@ -15,12 +15,14 @@ import { HomeHubComponent } from './home/components/home-hub/home-hub.component'
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import { DropdownBasicComponent } from './shared/components/dropdown-basic/dropdown-basic.component';
+import { WeatherCardComponent } from './home/components/weather-card/weather-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeHubComponent,
-    DropdownBasicComponent
+    DropdownBasicComponent,
+    WeatherCardComponent
   ],
   imports: [
     BrowserModule,

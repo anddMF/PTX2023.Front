@@ -1,0 +1,22 @@
+mat-icon {
+    vertical-align: middle;
+}
+
+.weather-lg-temperature {
+    font-weight: bold;
+    font-size: 3vw;
+    vertical-align: middle !important;
+    display: table-cell;
+}
+
+@media screen and (min-width: 768px) {
+    .weather-lg-temperature {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .weather-lg-temperature {
+        font-size: 11vw;
+    }
+}
