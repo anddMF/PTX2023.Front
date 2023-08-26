@@ -38,11 +38,28 @@ export class WeatherCardComponent {
     }
   ];
 
-  constructor() {
+  mockWeatherCurrent = {
+		"HasPrecipitation": "True",
+		"IsDayTime": "True",
+		"Link": "http://www.accuweather.com/en/ca/montreal/h3a/current-weather/56186?lang=en-us",
+		"LocalObservationDateTime": "2023-08-07T15:38:00-04:00",
+		"PrecipitationType": "Rain",
+		"Temperature": {
+			"Imperial": {
+				"Unit": "F",
+				"UnitType": 18,
+				"Value": 70.0
+			},
+			"Metric": {
+				"Unit": "C",
+				"UnitType": 17,
+				"Value": 21.1
+			}
+		},
+		"WeatherIcon": "12",
+		"WeatherText": "Light rain"
+	}
 
-  }
-
-  roundNumber(number: number) {
-    return Math.round(number);
-  }
+  constructor() { }
+  
 }

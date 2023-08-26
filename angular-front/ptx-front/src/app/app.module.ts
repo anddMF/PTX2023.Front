@@ -16,13 +16,15 @@ import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import { DropdownBasicComponent } from './shared/components/dropdown-basic/dropdown-basic.component';
 import { WeatherCardComponent } from './home/components/weather-card/weather-card.component';
+import { RoundNumberPipe } from './home/services/round-number.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeHubComponent,
     DropdownBasicComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    RoundNumberPipe
   ],
   imports: [
     BrowserModule,
