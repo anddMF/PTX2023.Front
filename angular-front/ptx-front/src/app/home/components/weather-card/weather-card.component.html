@@ -1,15 +1,16 @@
 <div class="rounded bg-grey shadow" style="overflow: hidden;">
     <!-- TODO: apply responsive on the columns -->
-    <div class="row-flex p-2">
+    <!-- TODO: create special css classes for each type of weahter -->
+    <div class="row-flex p-2 text-white">
         <div class="col-3 rounded">
-            <img src="/assets/images/weather-icons/we-cloudy.png" style="width: 90%;">
+            <img src="/assets/images/weather-icons/we-rain-day.png" style="width: 80%;">
         </div>
         <div class="col-4 text-center p-1" style="word-wrap: break-word; display: table;">
             <h1 class="weather-lg-temperature">{{ mockWeatherCurrent.Temperature.Metric.Value | roundNumber }}°</h1>
         </div>
         <div class="col-5 text-center p-1 d-table">
             <h4 class="fw-bold d-table-cell" style="vertical-align: middle;">
-                partly sunny <br>
+                {{ mockWeatherCurrent.WeatherText | lowercase }} <br>
                 <mat-icon fontIcon="location_on"></mat-icon> montreal
             </h4>
         </div>
@@ -17,14 +18,14 @@
 
     <!-- HOURLY WEATHER  -->
     <div *ngFor="let weather of mockWeatherHourly" class="row-flex p-2 fw-bold d-table bg-white">
-        <div class="col-4 text-start bg- d-table-cell" style="vertical-align: middle; text-transform: lowercase;">
+        <div class="col-4 text-start d-table-cell" style="vertical-align: middle; text-transform: lowercase;">
             {{ weather.DateTime | date: 'hh a' }}
         </div>
-        <div class="col-4 text-center bg--1 d-table-cell" style="vertical-align: middle;">
-            <img src="/assets/images/weather-icons/we-sunny.png" style="width: 20%;">
+        <div class="col-4 text-center d-table-cell" style="vertical-align: middle;">
+            <img src="/assets/images/weather-icons/{{ getWeatherImageName(weather.WeatherIcon) }}.png" style="width: 20%;">
             {{ weather.Temperature.Value | roundNumber }}°
         </div>
-        <div class="col-4 text-end bg- d-table-cell" style="vertical-align: middle;">
+        <div class="col-4 text-end d-table-cell" style="vertical-align: middle;">
             {{ weather.IconPhrase | lowercase }}
         </div>
     </div>

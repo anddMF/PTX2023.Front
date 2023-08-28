@@ -22,7 +22,6 @@
   font-style: italic;
   color: #BBBBBB;
   opacity: 0.7;
-  /* Firefox */
 }
 
 .search-btn {
@@ -48,30 +47,11 @@ mat-icon {
   vertical-align: middle; 
   font-size: medium; 
   font-weight: bold;
-  align-self: center!important;
+  align-self: center !important;
 }
 
 .selected-category {
   background-color: var(--blue-2) !important;
   border-width: 1px;
   border-color: black;
-}
-
-.weather-lg-temperature {
-  font-weight: bold; 
-  font-size: 3vw; 
-  vertical-align: middle !important;
-  display: table-cell;
-}
-
-@media screen and (min-width: 768px) {
-  .weather-lg-temperature {
-    font-size: 3vw;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .weather-lg-temperature {
-    font-size: 11vw;
-  }
 }

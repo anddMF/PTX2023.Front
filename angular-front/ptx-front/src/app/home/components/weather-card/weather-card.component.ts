@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WeatherClassEnum } from 'src/app/shared/models/weather-class.enum';
 
 @Component({
   selector: 'app-weather-card',
@@ -21,7 +22,7 @@ export class WeatherCardComponent {
         "UnitType": 17,
         "Value": 19.4
       },
-      "WeatherIcon": 18
+      "WeatherIcon": 13
     },
     {
       "DateTime": "2023-08-07T19:00:00-04:00",
@@ -39,27 +40,33 @@ export class WeatherCardComponent {
   ];
 
   mockWeatherCurrent = {
-		"HasPrecipitation": "True",
-		"IsDayTime": "True",
-		"Link": "http://www.accuweather.com/en/ca/montreal/h3a/current-weather/56186?lang=en-us",
-		"LocalObservationDateTime": "2023-08-07T15:38:00-04:00",
-		"PrecipitationType": "Rain",
-		"Temperature": {
-			"Imperial": {
-				"Unit": "F",
-				"UnitType": 18,
-				"Value": 70.0
-			},
-			"Metric": {
-				"Unit": "C",
-				"UnitType": 17,
-				"Value": 21.1
-			}
-		},
-		"WeatherIcon": "12",
-		"WeatherText": "Light rain"
-	}
+    "HasPrecipitation": "True",
+    "IsDayTime": "True",
+    "Link": "http://www.accuweather.com/en/ca/montreal/h3a/current-weather/56186?lang=en-us",
+    "LocalObservationDateTime": "2023-08-07T15:38:00-04:00",
+    "PrecipitationType": "Rain",
+    "Temperature": {
+      "Imperial": {
+        "Unit": "F",
+        "UnitType": 18,
+        "Value": 70.0
+      },
+      "Metric": {
+        "Unit": "C",
+        "UnitType": 17,
+        "Value": 21.1
+      }
+    },
+    "WeatherIcon": "12",
+    "WeatherText": "Light rain"
+  }
 
   constructor() { }
-  
+
+  getWeatherImageName(weatherCode?: number) {
+    console.log('entrou', weatherCode)
+    const res = weatherCode ? WeatherClassEnum[weatherCode] : WeatherClassEnum[7];
+    console.log('saiu', res)
+    return res
+  }
 }
