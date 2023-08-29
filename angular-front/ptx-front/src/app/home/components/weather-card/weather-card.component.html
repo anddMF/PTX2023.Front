@@ -1,9 +1,9 @@
 <div class="rounded bg-grey shadow" style="overflow: hidden;">
     <!-- TODO: apply responsive on the columns -->
     <!-- TODO: create special css classes for each type of weahter -->
-    <div class="row-flex p-2 text-white">
+    <div class="row-flex p-2 " [ngClass]="getWeatherImageName(+mockWeatherCurrent.WeatherIcon)">
         <div class="col-3 rounded">
-            <img src="/assets/images/weather-icons/we-rain-day.png" style="width: 80%;">
+            <img src="/assets/images/weather-icons/{{ getWeatherImageName(+mockWeatherCurrent.WeatherIcon) }}.png" style="width: 80%;">
         </div>
         <div class="col-4 text-center p-1" style="word-wrap: break-word; display: table;">
             <h1 class="weather-lg-temperature">{{ mockWeatherCurrent.Temperature.Metric.Value | roundNumber }}°</h1>
@@ -17,7 +17,7 @@
     </div>
 
     <!-- HOURLY WEATHER  -->
-    <div *ngFor="let weather of mockWeatherHourly" class="row-flex p-2 fw-bold d-table bg-white">
+    <div *ngFor="let weather of mockWeatherHourly" class="row-flex p-2 fw-bold d-table" [ngClass]="getWeatherImageName(weather.WeatherIcon)">
         <div class="col-4 text-start d-table-cell" style="vertical-align: middle; text-transform: lowercase;">
             {{ weather.DateTime | date: 'hh a' }}
         </div>
