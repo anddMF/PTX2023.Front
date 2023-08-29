@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WeatherClassEnum } from 'src/app/shared/models/weather-class.enum';
+import { WeatherClassService } from 'src/app/shared/services/weather-class.service';
 
 @Component({
   selector: 'app-weather-card',
@@ -61,12 +62,9 @@ export class WeatherCardComponent {
     "WeatherText": "Light rain"
   }
 
-  constructor() { }
+  constructor(private weatherClass: WeatherClassService) { }
 
   getWeatherImageName(weatherCode?: number) {
-    console.log('entrou', weatherCode)
-    const res = weatherCode ? WeatherClassEnum[weatherCode] : WeatherClassEnum[7];
-    console.log('saiu', res)
-    return res
+    return weatherCode ? this.weatherClass.getClassification(weatherCode) : WeatherClassEnum.sunny
   }
 }
