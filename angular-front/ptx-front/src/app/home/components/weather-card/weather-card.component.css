@@ -2,17 +2,26 @@ mat-icon {
     vertical-align: middle;
 }
 
-.we-showers-day, .we-cloudy, .we-fog, .we-freezing-rain, .we-rain-day, .we-sunny-showers {
+.we-showers-day,
+.we-cloudy,
+.we-fog,
+.we-freezing-rain,
+.we-rain-day,
+.we-sunny-showers {
     background-color: #0567d8 !important;
     color: #cce4ff !important;
 }
 
-.we-sunny, .we-partly-sunny, .we-mostly-sunny {
+.we-sunny,
+.we-partly-sunny,
+.we-mostly-sunny {
     background-color: #d6930d !important;
     color: #ffe7b8 !important;
 }
 
-.we-flurries-day, .we-snow, .we-windy {
+.we-flurries-day,
+.we-snow,
+.we-windy {
     background-color: #008670 !important;
     color: #c1fdf3 !important;
 }
@@ -27,14 +36,23 @@ mat-icon {
     color: #83d2db !important;
 }
 
-.we-showers-night, .we-rain-night {
+.we-showers-night,
+.we-rain-night {
     background-color: #6ca6e7 !important;
     color: #fae5b1 !important;
 }
 
-.we-clear, .we-mostly-clear, .we-partly-clear {
+.we-clear,
+.we-mostly-clear,
+.we-partly-clear {
     background-color: #2e2006 !important;
     color: #fae5b1 !important;
+}
+
+.support-text {
+    display: table-cell !important;
+    vertical-align: middle;
+    text-transform: lowercase;
 }
 
 .weather-lg-temperature {
@@ -42,6 +60,14 @@ mat-icon {
     font-size: 3vw;
     vertical-align: middle !important;
     display: table-cell;
+}
+
+a,
+a:active,
+a:hover,
+a:visited,
+a:link {
+    text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
