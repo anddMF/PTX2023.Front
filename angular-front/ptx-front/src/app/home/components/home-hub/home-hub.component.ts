@@ -13,6 +13,14 @@ interface CategoryButton {
   styleUrls: ['./home-hub.component.css']
 })
 export class HomeHubComponent {
+
+  dropdownCurrencyList: Dropdown[] = [
+    { id: 1, text: 'BRL'},
+    { id: 2, text: 'CAD'},
+    { id: 3, text: 'USD'},
+    { id: 4, text: 'EUR'}
+  ]
+
   dropdownSortList: Dropdown[] = [
     { id: 1, text: 'popularity' },
     { id: 2, text: 'date desc' },

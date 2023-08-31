@@ -87,9 +87,30 @@
         <div class="p-2 col-md-3 col-sm-10 col-12 mx-sm-auto">
             <app-weather-card></app-weather-card>
             
-            <div class="rounded bg-danger mt-2 shadow">
-                <p>terceira</p>
-                <br><br><br>
+            <div class="rounded bg-primary p-3 mt-3 shadow">
+                <div class="row-flex">
+                    <div class="col-5">
+                        <app-dropdown-basic [dropdownList]="dropdownCurrencyList"
+                                (selected)="changeSortType($event)"></app-dropdown-basic>
+                    </div>
+                    <div class="col-5 offset-md-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-bottom" style="border: 0; background-color: transparent;" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row-flex mt-4">
+                    <div class="col-5">
+                        <app-dropdown-basic [dropdownList]="dropdownCurrencyList" [preSelectedIndex]="1"
+                                (selected)="changeSortType($event)"></app-dropdown-basic>
+                    </div>
+                    <div class="col-5 offset-md-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-bottom" style="border: 0; background-color: transparent;" >
+                        </div>
+                    </div>
+                    <hr>
+                </div>
             </div>
         </div>
     </div>

@@ -9,6 +9,7 @@ import { Dropdown } from '../../models/dropdown.model';
 export class DropdownBasicComponent {
   @Input() dropdownList: Dropdown[];
   @Input() placeholder: string = ''
+  @Input() preSelectedIndex: number = -1;
   @Output() selected = new EventEmitter<Dropdown>();
 
   selectedText: string;
@@ -17,7 +18,7 @@ export class DropdownBasicComponent {
   }
 
   ngOnInit(): void {
-    this.selectedText = !this.placeholder ? this.dropdownList[0].text : this.placeholder;
+    this.selectedText = !this.placeholder ? this.dropdownList[this.preSelectedIndex < 0 ? 0 : this.preSelectedIndex].text : this.placeholder;
   }
 
   changeDropdownSelected(toSelect: Dropdown) {

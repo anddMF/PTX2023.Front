@@ -9,6 +9,8 @@ import { WeatherClassService } from 'src/app/shared/services/weather-class.servi
 })
 export class WeatherCardComponent {
 
+  // TODO: option to change city
+  
   mockWeatherHourly = [
     {
       "DateTime": "2023-08-07T18:00:00-04:00",
