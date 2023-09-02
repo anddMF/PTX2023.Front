@@ -39,6 +39,8 @@ h6 {
     --yellow-1: #F6D234;
     --blue-1: #3389D0;
     --blue-2: #003058;
+    --purple-1: #5153B7;
+    --purple-2: #6E70EF;
 }
 
 .bg-black-2 {
@@ -59,4 +61,12 @@ h6 {
 
 .bg-yellow-1 {
     background-color: var(--yellow-1) !important;
+}
+
+.bg-purple-1 {
+    background-color: var(--purple-1) !important;
+}
+
+.bg-purple-2 {
+    background-color: var(--purple-2) !important;
 }
