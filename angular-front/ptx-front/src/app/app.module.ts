@@ -17,6 +17,7 @@ import { NgFor } from '@angular/common';
 import { DropdownBasicComponent } from './shared/components/dropdown-basic/dropdown-basic.component';
 import { WeatherCardComponent } from './home/components/weather-card/weather-card.component';
 import { RoundNumberPipe } from './shared/services/round-number.pipe';
+import { CurrencyCardComponent } from './home/components/currency-card/currency-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RoundNumberPipe } from './shared/services/round-number.pipe';
     HomeHubComponent,
     DropdownBasicComponent,
     WeatherCardComponent,
-    RoundNumberPipe
+    RoundNumberPipe,
+    CurrencyCardComponent
   ],
   imports: [
     BrowserModule,

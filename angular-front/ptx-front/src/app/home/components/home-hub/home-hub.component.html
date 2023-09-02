@@ -87,35 +87,7 @@
         <div class="p-2 col-md-3 col-sm-10 col-12 mx-sm-auto">
             <app-weather-card></app-weather-card>
 
-            <div class="rounded bg-purple-1 text-white p-3 mt-3 shadow">
-                <div class="row-flex pb-4" style="border-bottom: solid; border-bottom-width: 2px !important; border-bottom-color: black;">
-                    <div class="col-5">
-                        <app-dropdown-basic [dropdownList]="dropdownCurrencyList" [preSelectedIndex]="0"
-                            (selected)="changeFromCurrency($event)"></app-dropdown-basic>
-                    </div>
-                    <hr>
-                    <div class="col-5 offset-md-2">
-                        <div class="input-group">
-                            <input type="number" class="form-control border-bottom text-center fw-bold text-white"
-                                [(ngModel)]="currencyFromValue" style="border: 0; background-color: transparent; border-radius: 0 !important;">
-                        </div>
-                    </div>
-                </div>
-                <div class="row-flex mt-4">
-                    <div class="col-5">
-                        <app-dropdown-basic [dropdownList]="dropdownCurrencyList" [preSelectedIndex]="1"
-                            (selected)="changeToCurrency($event)"></app-dropdown-basic>
-                    </div>
-                    <div class="col-5 offset-md-2 text-center">
-                        <h2> {{ currencyToValue }} </h2>
-                    </div>
-                </div>
-                <br>
-                <div class="col-12 fw-bold text-black fst-italic">
-                    <p>rate from {{ currentDate | date: 'dd/MM/yyyy' }}</p>
-                </div>
-                <button class="btn bg-purple-2 shadow text-white col-12 p-2 fw-bold" (click)="getCurrency(currencyFromValue, currencyToValue)">convert now <mat-icon fontIcon="currency_exchange"></mat-icon></button>
-            </div>
+            <app-currency-card></app-currency-card>
         </div>
     </div>
 </div>
