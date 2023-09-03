@@ -1,0 +1,39 @@
+.currency-border {
+    border-bottom: solid;
+    border-bottom-width: 2px !important;
+    border-bottom-color: black;
+    padding-bottom: 1.5rem !important;
+}
+
+.rate-block {
+    font-weight: bold;
+    color: black;
+    font-style: italic;
+}
+
+.btn-convert { 
+    background-color: var(--purple-2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem !important;
+}
+
+h2 {
+    overflow: hidden;
+    text-align: center !important;
+}
+
+input {
+    border: 0;
+    background-color: transparent;
+    border-radius: 0 !important;
+    color: white !important;
+    font-weight: bold;
+    text-align: center !important;
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+input:focus {
+    background-color: transparent;
+}

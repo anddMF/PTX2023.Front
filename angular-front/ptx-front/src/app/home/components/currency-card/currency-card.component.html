@@ -1,14 +1,13 @@
 <div class="rounded bg-purple-1 text-white p-3 mt-3 shadow">
-    <div class="row-flex pb-4" style="border-bottom: solid; border-bottom-width: 2px !important; border-bottom-color: black;">
+    <div class="row-flex currency-border">
         <div class="col-5">
             <app-dropdown-basic [dropdownList]="dropdownCurrencyList" [preSelectedIndex]="0" [backgroundColor]="dropdownBg"
                 (selected)="changeFromCurrency($event)"></app-dropdown-basic>
         </div>
-        <hr>
         <div class="col-5 offset-md-2">
             <div class="input-group">
-                <input type="number" class="form-control border-bottom text-center fw-bold text-white"
-                    [(ngModel)]="currencyFromValue" style="border: 0; background-color: transparent; border-radius: 0 !important;">
+                <input type="number" class="form-control"
+                    [(ngModel)]="currencyFromValue">
             </div>
         </div>
     </div>
@@ -17,13 +16,13 @@
             <app-dropdown-basic [dropdownList]="dropdownCurrencyList" [preSelectedIndex]="1" [backgroundColor]="dropdownBg"
                 (selected)="changeToCurrency($event)"></app-dropdown-basic>
         </div>
-        <div class="col-5 offset-md-2 text-center">
+        <div class="col-5 offset-md-2">
             <h2> {{ currencyToValue }} </h2>
         </div>
     </div>
     <br>
-    <div class="col-12 fw-bold text-black fst-italic">
+    <div class="col-12 rate-block">
         <p>rate from {{ currentDate | date: 'dd/MM/yyyy' }}</p>
     </div>
-    <button class="btn bg-purple-2 shadow text-white col-12 p-2 fw-bold" (click)="getCurrency(currencyFromValue, currencyToValue)">convert now <mat-icon fontIcon="currency_exchange"></mat-icon></button>
+    <button class="btn col-12 btn-convert" (click)="getCurrency(currencyFromValue, currencyToValue)">convert now <mat-icon fontIcon="currency_exchange"></mat-icon></button>
 </div>
