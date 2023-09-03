@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Dropdown } from '../../models/dropdown.model';
+import { DropdownBackground } from '../../models/dropdown-bg.enum';
 
 @Component({
   selector: 'app-dropdown-basic',
@@ -10,6 +11,7 @@ export class DropdownBasicComponent {
   @Input() dropdownList: Dropdown[];
   @Input() placeholder: string = ''
   @Input() preSelectedIndex: number = -1;
+  @Input() backgroundColor: DropdownBackground = DropdownBackground.default
   @Output() selected = new EventEmitter<Dropdown>();
 
   selectedText: string;

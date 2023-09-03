@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { bgTransparent } from 'src/app/shared/models/dropdown-bg.enum';
 import { Dropdown } from 'src/app/shared/models/dropdown.model';
 
 @Component({
@@ -20,6 +21,8 @@ export class CurrencyCardComponent {
   currencyFromValue: string;
   currencyToValue: string = '100';
   currentDate = new Date();
+
+  dropdownBg = bgTransparent;
 
   constructor() {
     // TODO: add pre load for currency BRL to CAD

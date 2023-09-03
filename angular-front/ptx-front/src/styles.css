@@ -70,3 +70,7 @@ h6 {
 .bg-purple-2 {
     background-color: var(--purple-2) !important;
 }
+
+mat-icon {
+    vertical-align: middle;
+}

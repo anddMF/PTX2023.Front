@@ -1,7 +1,3 @@
-mat-icon {
-  vertical-align: middle;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -46,4 +42,13 @@ mat-icon {
   font-size: medium;
   font-weight: lighter;
   align-self: center !important;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-default {
+  background-color: var(--black-2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }

@@ -39,10 +39,6 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.637) !important;
 }
 
-mat-icon {
-  vertical-align: middle;
-}
-
 .dropdown-label {
   vertical-align: middle; 
   font-size: medium; 
