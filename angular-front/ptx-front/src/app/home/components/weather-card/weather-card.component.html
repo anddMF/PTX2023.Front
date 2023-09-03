@@ -1,11 +1,11 @@
-<div class="rounded shadow" style="overflow: hidden;">
+<div class="weather-container">
     <!-- CURRENT WEATHER -->
     <a href="{{ mockWeatherCurrent.Link }}" target="_blank">
         <div class="row-flex p-2 border-bottom" [ngClass]="getWeatherImageName(+mockWeatherCurrent.WeatherIcon)">
             <div class="col-4 rounded">
                 <img src="/assets/images/weather-icons/{{ getWeatherImageName(+mockWeatherCurrent.WeatherIcon) }}.png" width="80%">
             </div>
-            <div class="col-4 text-center p-1" style="word-wrap: break-word; display: table;">
+            <div class="col-4 weather-lg-container">
                 <h1 class="weather-lg-temperature">{{ mockWeatherCurrent.Temperature.Metric.Value | roundNumber }}°</h1>
             </div>
             <div class="col-4 text-center p-1 text-end d-table">

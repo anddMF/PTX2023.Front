@@ -45,10 +45,23 @@
     color: #fae5b1 !important;
 }
 
+.weather-container {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-radius: 0.25rem !important;
+}
+
 .support-text {
     display: table-cell !important;
     vertical-align: middle;
     text-transform: lowercase;
+}
+
+.weather-lg-container {
+    word-wrap: break-word; 
+    display: table;
+    text-align: center !important;
+    padding: 0.25rem !important;
 }
 
 .weather-lg-temperature {
