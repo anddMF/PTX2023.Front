@@ -18,6 +18,7 @@ import { DropdownBasicComponent } from './shared/components/dropdown-basic/dropd
 import { WeatherCardComponent } from './home/components/weather-card/weather-card.component';
 import { RoundNumberPipe } from './shared/services/round-number.pipe';
 import { CurrencyCardComponent } from './home/components/currency-card/currency-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CurrencyCardComponent } from './home/components/currency-card/currency-
     MatSelectModule,
     NgFor, 
     MatInputModule, 
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
