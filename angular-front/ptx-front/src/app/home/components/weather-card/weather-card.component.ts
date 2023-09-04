@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { WeatherClassEnum } from 'src/app/shared/models/weather-class.enum';
 import { WeatherClassService } from 'src/app/shared/services/weather-class.service';
+import { environment } from 'src/environments/environment';
+import { WeatherService } from '../../services/weather/weather.service';
+import { Weather } from '../../models/weather.model';
 
 @Component({
   selector: 'app-weather-card',
@@ -14,59 +17,48 @@ export class WeatherCardComponent {
   mockWeatherHourly = [
     {
       "DateTime": "2023-08-07T18:00:00-04:00",
-      "IconPhrase": "Rain",
-      "IsDaylight": true,
+      "WeatherText": "Rain",
       "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=18&unit=c&lang=en-us",
       "PrecipitationIntensity": "Light",
       "PrecipitationProbability": 66.0,
       "PrecipitationType": "Rain",
-      "Temperature": {
-        "Unit": "C",
-        "UnitType": 17,
-        "Value": 19.4
-      },
+      "Temperature": 19.4,
       "WeatherIcon": 13
     },
     {
       "DateTime": "2023-08-07T19:00:00-04:00",
-      "IconPhrase": "Cloudy",
-      "IsDaylight": true,
+      "WeatherText": "Cloudy",
       "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=19&unit=c&lang=en-us",
       "PrecipitationProbability": 49.0,
-      "Temperature": {
-        "Unit": "C",
-        "UnitType": 17,
-        "Value": 18.9
-      },
+      "Temperature": 18.9,
       "WeatherIcon": 7
     }
   ];
 
   mockWeatherCurrent = {
-    "HasPrecipitation": "True",
-    "IsDayTime": "True",
+    "HasPrecipitation": true,
     "Link": "http://www.accuweather.com/en/ca/montreal/h3a/current-weather/56186?lang=en-us",
-    "LocalObservationDateTime": "2023-08-07T15:38:00-04:00",
+    "DateTime": "2023-08-07T15:38:00-04:00",
     "PrecipitationType": "Rain",
-    "Temperature": {
-      "Imperial": {
-        "Unit": "F",
-        "UnitType": 18,
-        "Value": 70.0
-      },
-      "Metric": {
-        "Unit": "C",
-        "UnitType": 17,
-        "Value": 21.1
-      }
-    },
+    "Temperature": 28.6,
     "WeatherIcon": "12",
     "WeatherText": "Light rain"
   }
 
-  constructor(private weatherClass: WeatherClassService) { }
+  cityKey = environment.defaultCityKey;
+  currentWeather: Weather;
+
+  constructor(private weatherClass: WeatherClassService, private weatherSvc: WeatherService) {
+    this.getCurrentWeather()
+   }
 
   getWeatherImageName(weatherCode?: number) {
-    return weatherCode ? this.weatherClass.getClassification(weatherCode) : WeatherClassEnum.sunny
+    return weatherCode ? this.weatherClass.getClassification(weatherCode) : WeatherClassEnum.sunny;
+  }
+
+  getCurrentWeather() {
+    this.weatherSvc.getCurrentWeather(this.cityKey).subscribe((res: Weather) => {
+      this.currentWeather = res;
+    })
   }
 }

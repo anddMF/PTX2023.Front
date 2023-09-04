@@ -1,16 +1,16 @@
 <div class="weather-container">
     <!-- CURRENT WEATHER -->
-    <a href="{{ mockWeatherCurrent.Link }}" target="_blank">
-        <div class="row-flex p-2 border-bottom" [ngClass]="getWeatherImageName(+mockWeatherCurrent.WeatherIcon)">
+    <a href="{{ currentWeather.Link }}" target="_blank">
+        <div class="row-flex p-2 border-bottom" [ngClass]="getWeatherImageName(currentWeather.WeatherIcon)">
             <div class="col-4 rounded">
-                <img src="/assets/images/weather-icons/{{ getWeatherImageName(+mockWeatherCurrent.WeatherIcon) }}.png" width="80%">
+                <img src="/assets/images/weather-icons/{{ getWeatherImageName(currentWeather.WeatherIcon) }}.png" width="80%">
             </div>
             <div class="col-4 weather-lg-container">
-                <h1 class="weather-lg-temperature">{{ mockWeatherCurrent.Temperature.Metric.Value | roundNumber }}°</h1>
+                <h1 class="weather-lg-temperature">{{ currentWeather.Temperature | roundNumber }}°</h1>
             </div>
             <div class="col-4 text-center p-1 text-end d-table">
                 <h4 class="fw-bold text-end support-text">
-                    {{ mockWeatherCurrent.WeatherText | lowercase }} <br>
+                    {{ currentWeather.WeatherText | lowercase }} <br>
                     <mat-icon fontIcon="location_on"></mat-icon> montreal
                 </h4>
             </div>
@@ -25,10 +25,10 @@
             </div>
             <div class="col-4 text-center support-text">
                 <img src="/assets/images/weather-icons/{{ getWeatherImageName(weather.WeatherIcon) }}.png" width="20%">
-                {{ weather.Temperature.Value | roundNumber }}°
+                {{ weather.Temperature | roundNumber }}°
             </div>
             <div class="col-4 text-end support-text">
-                {{ weather.IconPhrase }}
+                {{ weather.WeatherText }}
             </div>
         </div>
     </a>

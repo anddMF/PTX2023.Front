@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Currency } from '../../models/currency.model';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,6 @@ export class CurrencyService {
     queryParams = queryParams.append('to', to);
     queryParams = queryParams.append('date', 'latest');
 
-    return this.http.get<Currency>(environment.apiUrl + '/currency/rate', {params: queryParams});
+    return this.http.get<Currency>(environment.apiBaseUrl + '/currency/rate', {params: queryParams});
   }
 }
