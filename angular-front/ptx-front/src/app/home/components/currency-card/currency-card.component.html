@@ -17,12 +17,12 @@
                 (selected)="changeToCurrency($event)"></app-dropdown-basic>
         </div>
         <div class="col-5 offset-md-2">
-            <h2> {{ currencyToValue }} </h2>
+            <h2> {{ currencyToValue | number: '1.2-2' }} </h2>
         </div>
     </div>
     <br>
     <div class="col-12 rate-block">
         <p>rate from {{ currentDate | date: 'dd/MM/yyyy' }}</p>
     </div>
-    <button class="btn col-12 btn-convert" (click)="getCurrency(currencyFromValue, currencyToValue)">convert now <mat-icon fontIcon="currency_exchange"></mat-icon></button>
+    <button class="btn col-12 btn-convert" (click)="getCurrency()">convert now <mat-icon fontIcon="currency_exchange"></mat-icon></button>
 </div>

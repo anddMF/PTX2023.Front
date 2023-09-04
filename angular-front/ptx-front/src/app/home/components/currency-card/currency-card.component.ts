@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { bgTransparent } from 'src/app/shared/models/dropdown-bg.enum';
 import { Dropdown } from 'src/app/shared/models/dropdown.model';
+import { CurrencyService } from '../../services/currency/currency.service';
+import { Currency } from '../../models/currency.model';
 
 @Component({
   selector: 'app-currency-card',
@@ -10,24 +12,24 @@ import { Dropdown } from 'src/app/shared/models/dropdown.model';
 export class CurrencyCardComponent {
 
   dropdownCurrencyList: Dropdown[] = [
-    { id: 1, text: 'BRL' },
-    { id: 2, text: 'CAD' },
+    { id: 1, text: 'CAD' },
+    { id: 2, text: 'BRL' },
     { id: 3, text: 'USD' },
     { id: 4, text: 'EUR' }
   ];
 
   currencyFrom: Dropdown;
   currencyTo: Dropdown;
-  currencyFromValue: string;
-  currencyToValue: string = '100';
+  currencyFromValue: number = 1;
+  currencyToValue: number = 100;
   currentDate = new Date();
 
   dropdownBg = bgTransparent;
 
-  constructor() {
-    // TODO: add pre load for currency BRL to CAD
+  constructor(private currencySvc: CurrencyService) {
     this.currencyFrom = this.dropdownCurrencyList[0];
     this.currencyTo = this.dropdownCurrencyList[1];
+    this.getCurrency();
   }
 
   changeFromCurrency(selected: Dropdown) {
@@ -38,17 +40,15 @@ export class CurrencyCardComponent {
     this.currencyTo = selected
   }
 
-  getCurrency(from: string, to: string) {
-    console.log(from, to)
+  getCurrency() {
     if (this.currencyFrom.text === this.currencyTo.text) {
       this.currencyToValue = this.currencyFromValue;
-      console.log('caiu if', this.currencyFromValue, this.currencyToValue)
     }
     else {
-      const result = +this.currencyFromValue * 4;
-      this.currencyToValue = '' + result;
-      console.log('caiu else', result, this.currencyToValue)
+      this.currencySvc.getCurrency(this.currencyFrom.text, this.currencyTo.text).subscribe((x: Currency) => {
+        this.currentDate = x.date;
+        this.currencyToValue = this.currencyFromValue * x.rate;
+      })
     }
   }
-
 }
