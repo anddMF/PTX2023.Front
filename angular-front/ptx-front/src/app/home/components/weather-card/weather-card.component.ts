@@ -14,9 +14,8 @@ export class WeatherCardComponent {
 
   // TODO: option to change city
   
-  mockWeatherHourly = [
+  hourlyWeatherList: Weather[] = [
     {
-      "DateTime": "2023-08-07T18:00:00-04:00",
       "WeatherText": "Rain",
       "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=18&unit=c&lang=en-us",
       "PrecipitationIntensity": "Light",
@@ -26,7 +25,6 @@ export class WeatherCardComponent {
       "WeatherIcon": 13
     },
     {
-      "DateTime": "2023-08-07T19:00:00-04:00",
       "WeatherText": "Cloudy",
       "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=19&unit=c&lang=en-us",
       "PrecipitationProbability": 49.0,
@@ -35,21 +33,12 @@ export class WeatherCardComponent {
     }
   ];
 
-  mockWeatherCurrent = {
-    "HasPrecipitation": true,
-    "Link": "http://www.accuweather.com/en/ca/montreal/h3a/current-weather/56186?lang=en-us",
-    "DateTime": "2023-08-07T15:38:00-04:00",
-    "PrecipitationType": "Rain",
-    "Temperature": 28.6,
-    "WeatherIcon": "12",
-    "WeatherText": "Light rain"
-  }
-
   cityKey = environment.defaultCityKey;
-  currentWeather: Weather;
+  currentWeather: Weather = {Link: ''};
 
   constructor(private weatherClass: WeatherClassService, private weatherSvc: WeatherService) {
-    this.getCurrentWeather()
+    this.getCurrentWeather();
+    this.getHourlyWeather();
    }
 
   getWeatherImageName(weatherCode?: number) {
@@ -57,8 +46,14 @@ export class WeatherCardComponent {
   }
 
   getCurrentWeather() {
-    this.weatherSvc.getCurrentWeather(this.cityKey).subscribe((res: Weather) => {
+    this.weatherSvc.getCurrent(this.cityKey).subscribe((res: Weather) => {
       this.currentWeather = res;
+    })
+  }
+
+  getHourlyWeather() {
+    this.weatherSvc.getHourly(this.cityKey).subscribe((res: Weather[]) => {
+      this.hourlyWeatherList = res;
     })
   }
 }

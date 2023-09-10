@@ -11,18 +11,21 @@ export class WeatherService {
   // TODO: db with city keys and names because API doesnt provide it
   constructor(private http: HttpClient) { }
 
-  getCity(query: string){
+  getCityKey(query: string){
 
   }
 
-  getCurrentWeather(cityKey: number) {
+  getCurrent(cityKey: number) {
     let queryParams = new HttpParams();
     queryParams = queryParams.append('citykey', cityKey);
 
     return this.http.get<Weather>(environment.apiBaseUrl + '/weather/current', {params: queryParams})
   }
 
-  getHourlyWeather(cityKey: number) {
+  getHourly(cityKey: number) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('citykey', cityKey);
 
+    return this.http.get<Weather[]>(environment.apiBaseUrl + '/weather/hourly', {params: queryParams})
   }
 }

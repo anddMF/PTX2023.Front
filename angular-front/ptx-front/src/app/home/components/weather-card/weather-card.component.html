@@ -18,7 +18,7 @@
     </a>
 
     <!-- HOURLY WEATHER  -->
-    <a *ngFor="let weather of mockWeatherHourly" href="{{ weather.Link }}" target="_blank">
+    <a *ngFor="let weather of hourlyWeatherList.slice(0, 4)" href="{{ weather.Link }}" target="_blank">
         <div class="row-flex p-2 fw-bold d-table" [ngClass]="getWeatherImageName(weather.WeatherIcon)">
             <div class="col-4 text-start support-text">
                 {{ weather.DateTime | date: 'hh a' }}
