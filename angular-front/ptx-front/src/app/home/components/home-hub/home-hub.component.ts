@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Dropdown } from 'src/app/shared/models/dropdown.model';
+import { NewsService } from '../../services/news/news.service';
+import { NewsFilter } from '../../models/news-filter.model';
 
 interface CategoryButton {
   id: number;
@@ -21,16 +23,19 @@ export class HomeHubComponent {
   ];
 
   dropdownCountryList: Dropdown[] = [
-    { id: 1, text: 'brazil' },
-    { id: 2, text: 'canada' }
+    { id: 1, text: 'brazil', value: 'br' },
+    { id: 2, text: 'canada', value: 'ca' },
+    { id: 3, text: 'usa', value: 'us' },
+    { id: 4, text: 'germany', value: 'de' },
+    { id: 5, text: 'france', value: 'fr' }
   ]
 
   categories: CategoryButton[] = [
     { name: 'business', id: 1, active: false },
     { name: 'sports', id: 2, active: false },
-    { name: 'health', id: 1, active: false },
-    { name: 'science', id: 1, active: false },
-    { name: 'tech', id: 1, active: false }
+    { name: 'health', id: 3, active: false },
+    { name: 'science', id: 4, active: false },
+    { name: 'technology', id: 5, active: false }
   ]
 
   mockNews = [
@@ -60,10 +65,10 @@ export class HomeHubComponent {
     }
   ]
 
-  sortType: Dropdown;
-  country: Dropdown;
+  sortType: Dropdown = this.dropdownSortList[0];
+  country: Dropdown = this.dropdownCountryList[0];
 
-  constructor() { }
+  constructor(private newsSvc: NewsService) { }
 
   changeSortType(selected: Dropdown) {
     this.sortType = selected
@@ -78,6 +83,20 @@ export class HomeHubComponent {
   }
 
   cleanFilters() {
-    this.categories.forEach(x => x.active = false)
+    this.categories.forEach(x => x.active = false);
+  }
+
+  getNews() {
+    let foundCategories = this.categories.filter(x => x.active).map(y => { return y.name });
+    const selectedCategories = foundCategories ? foundCategories : undefined;
+    const filter: NewsFilter = { 
+      country: this.country.value, 
+      sortType: this.sortType.text, 
+      categories: selectedCategories 
+    };
+
+    this.newsSvc.getNews(filter).subscribe(x => {
+      console.log(x)
+    })
   }
 }
