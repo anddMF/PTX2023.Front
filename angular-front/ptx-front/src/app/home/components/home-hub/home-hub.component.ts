@@ -38,7 +38,7 @@ export class HomeHubComponent {
     { name: 'technology', id: 5, active: false }
   ]
 
-  mockNews = [
+  mockNews: any = [
     {
       "author": "Business Wire",
       "category": "business",
@@ -97,6 +97,7 @@ export class HomeHubComponent {
 
     this.newsSvc.getNews(filter).subscribe(x => {
       console.log(x)
+      this.mockNews = x
     })
   }
 }

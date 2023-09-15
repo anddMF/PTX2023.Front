@@ -46,12 +46,11 @@
                         clean
                         <mat-icon fontIcon="delete"></mat-icon>
                     </button>
-                    <button class="btn col-5 mx-auto bg-yellow-1  fw-bold">
+                    <button class="btn col-5 mx-auto bg-yellow-1 fw-bold" (click)="getNews()">
                         search
                         <mat-icon fontIcon="search"></mat-icon>
                     </button>
                 </div>
-                <button class="btn btn-danger btn-block" (click)="getNews()">teste filtros</button>
             </div>
         </div>
 
@@ -59,27 +58,27 @@
         <div class="col-md-6 col-sm-10 col-12 mx-sm-auto p-2">
             <div *ngFor="let obj of mockNews" class="news-container">
                 <div class="row-flex">
-                    <div class="col-md-3 p-1">
+                    <!-- <div class="col-md-3 p-1">
                         <img [src]="obj.image" alt="news image">
-                    </div>
+                    </div> -->
 
                     <!-- NEWS TEXT -->
-                    <div class="col-md-7 p-1 bg-pimary">
+                    <div class="col-md-11 p-1 bg-pimary">
                         <h4 class="f-montserrat fw-bold">{{ obj.title }}</h4>
 
                         {{ obj.description }}
                     </div>
 
                     <!-- NEWS SIDE BUTTONS -->
-                    <div class="col-md-2 p-1">
+                    <div class="col-md-1 p-1">
                         <button class="btn btn-sm col-11 offset-md-1 ml-auto news-button">
-                            source <mat-icon fontIcon="feed"></mat-icon>
+                            <mat-icon fontIcon="feed"></mat-icon>
                         </button>
                         <button class="btn btn-sm offset-md-1 col-11 mt-3 news-button">
-                            share <mat-icon fontIcon="share"></mat-icon>
+                            <mat-icon fontIcon="share"></mat-icon>
                         </button>
                         <button class="btn btn-sm offset-md-1 col-11 mt-3 news-button">
-                            save <mat-icon fontIcon="bookmark"></mat-icon>
+                            <mat-icon fontIcon="bookmark"></mat-icon>
                         </button>
                     </div>
                 </div>

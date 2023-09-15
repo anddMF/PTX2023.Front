@@ -13,7 +13,7 @@ import { Weather } from '../../models/weather.model';
 export class WeatherCardComponent {
 
   // TODO: option to change city
-  
+
   hourlyWeatherList: Weather[] = [
     {
       "WeatherText": "Rain",
@@ -33,13 +33,24 @@ export class WeatherCardComponent {
     }
   ];
 
+  currentWeather: Weather = {
+    "DateTime": new Date(),
+    "HasPrecipitation": false,
+    "Link": "http://www.accuweather.com/en/ca/montreal/h3a/current-weather/56186?lang=en-us",
+    "PrecipitationType": undefined,
+    "Temperature": 21.0,
+    "WeatherIcon": 1,
+    "WeatherText": "Sunny"
+  };
+
   cityKey = environment.defaultCityKey;
-  currentWeather: Weather = {Link: ''};
 
   constructor(private weatherClass: WeatherClassService, private weatherSvc: WeatherService) {
-    this.getCurrentWeather();
-    this.getHourlyWeather();
-   }
+    if (!environment.localMode) {
+      this.getCurrentWeather();
+      this.getHourlyWeather();
+    }
+  }
 
   getWeatherImageName(weatherCode?: number) {
     return weatherCode ? this.weatherClass.getClassification(weatherCode) : WeatherClassEnum.sunny;
