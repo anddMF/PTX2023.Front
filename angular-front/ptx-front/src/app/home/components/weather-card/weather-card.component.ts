@@ -16,20 +16,44 @@ export class WeatherCardComponent {
 
   hourlyWeatherList: Weather[] = [
     {
-      "WeatherText": "Rain",
-      "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=18&unit=c&lang=en-us",
-      "PrecipitationIntensity": "Light",
-      "PrecipitationProbability": 66.0,
-      "PrecipitationType": "Rain",
-      "Temperature": 19.4,
-      "WeatherIcon": 13
+      "DateTime": new Date("2023-09-15T17:00:00-04:00"),
+      "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=17&unit=c&lang=en-us",
+      "PrecipitationProbability": 0.0,
+      "Temperature": 20.1,
+      "WeatherIcon": 2,
+      "WeatherText": "Mostly sunny"
     },
     {
-      "WeatherText": "Cloudy",
+      "DateTime": new Date("2023-09-15T18:00:00-04:00"),
+      "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=18&unit=c&lang=en-us",
+      "PrecipitationProbability": 0.0,
+      "Temperature": 18.8,
+      "WeatherIcon": 2,
+      "WeatherText": "Mostly sunny"
+    },
+    {
+      "DateTime": new Date("2023-09-15T19:00:00-04:00"),
       "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=19&unit=c&lang=en-us",
-      "PrecipitationProbability": 49.0,
-      "Temperature": 18.9,
-      "WeatherIcon": 7
+      "PrecipitationProbability": 0.0,
+      "Temperature": 17.6,
+      "WeatherIcon": 2,
+      "WeatherText": "Mostly sunny"
+    },
+    {
+      "DateTime": new Date("2023-09-15T20:00:00-04:00"),
+      "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=20&unit=c&lang=en-us",
+      "PrecipitationProbability": 0.0,
+      "Temperature": 16.9,
+      "WeatherIcon": 35,
+      "WeatherText": "Partly cloudy"
+    },
+    {
+      "DateTime": new Date("2023-09-15T21:00:00-04:00"),
+      "Link": "http://www.accuweather.com/en/ca/montreal/h3a/hourly-weather-forecast/56186?day=1&hbhhour=21&unit=c&lang=en-us",
+      "PrecipitationProbability": 0.0,
+      "Temperature": 16.6,
+      "WeatherIcon": 35,
+      "WeatherText": "Partly cloudy"
     }
   ];
 
@@ -37,8 +61,7 @@ export class WeatherCardComponent {
     "DateTime": new Date(),
     "HasPrecipitation": false,
     "Link": "http://www.accuweather.com/en/ca/montreal/h3a/current-weather/56186?lang=en-us",
-    "PrecipitationType": undefined,
-    "Temperature": 21.0,
+    "Temperature": 21.5,
     "WeatherIcon": 1,
     "WeatherText": "Sunny"
   };
