@@ -89,15 +89,24 @@ export class HomeHubComponent {
   getNews() {
     let foundCategories = this.categories.filter(x => x.active).map(y => { return y.name });
     const selectedCategories = foundCategories ? foundCategories : undefined;
-    const filter: NewsFilter = { 
-      country: this.country.value, 
-      sortType: this.sortType.text, 
-      categories: selectedCategories 
+    const filter: NewsFilter = {
+      country: this.country.value,
+      sortType: this.sortType.text,
+      categories: selectedCategories
     };
 
     this.newsSvc.getNews(filter).subscribe(x => {
       console.log(x)
       this.mockNews = x
     })
+  }
+
+  imageAsBackground(imageUrl: string) {
+    const styleObj = { 'background-image': `url("${imageUrl}")` };
+    return styleObj;
+  }
+
+  openLink(url: string) {
+    window.open(url);
   }
 }
