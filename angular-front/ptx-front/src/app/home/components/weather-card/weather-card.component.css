@@ -71,6 +71,10 @@
     display: table-cell;
 }
 
+.font-sm {
+    font-size: 12px;
+}
+
 a,
 a:active,
 a:hover,

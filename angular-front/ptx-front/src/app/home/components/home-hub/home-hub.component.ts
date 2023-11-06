@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Dropdown } from 'src/app/shared/models/dropdown.model';
 import { NewsService } from '../../services/news/news.service';
 import { NewsFilter } from '../../models/news-filter.model';
+import { HttpClient } from '@angular/common/http';
+import { WeatherService } from '../../services/weather/weather.service';
 
 interface CategoryButton {
   id: number;
@@ -68,7 +70,13 @@ export class HomeHubComponent {
   sortType: Dropdown = this.dropdownSortList[0];
   country: Dropdown = this.dropdownCountryList[0];
 
-  constructor(private newsSvc: NewsService) { }
+  showWallpaper: Boolean = true;
+  wallpaperUrl: string = '';
+  cityName: string = '';
+
+  constructor(private newsSvc: NewsService, private weatherSvc: WeatherService, private http: HttpClient) {
+    this.getLocation();
+   }
 
   changeSortType(selected: Dropdown) {
     this.sortType = selected
@@ -109,4 +117,27 @@ export class HomeHubComponent {
   openLink(url: string) {
     window.open(url);
   }
+
+  getLocation(): void {
+    console.log(navigator.geolocation)
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position)=> {
+
+          this.weatherSvc.getCityName(position.coords.latitude, position.coords.longitude).subscribe(x => {
+            console.log(x)
+            console.log(x.city)
+            this.cityName = x.city;
+
+            this.weatherSvc.getCityWallpaper(this.cityName).subscribe(x => {
+              console.log('WALLPAPER', x[0])
+              this.wallpaperUrl = x[0].urls.raw;
+              this.showWallpaper = true;
+            })
+          });
+        });
+    } else {
+       this.cityName = ''
+    }
+  }
+
 }

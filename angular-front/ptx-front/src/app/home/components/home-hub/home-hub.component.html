@@ -1,7 +1,13 @@
 <!-- TODO: create single classes for all classes except cols and padding -->
-<div class="hub-container">
-    <div class="p-5 m-5 bg-white"></div>
+<div *ngIf="cityName; else noGeoLocation" [ngStyle]="imageAsBackground(wallpaperUrl)" class="wallpaper">
+    <h1 class="col-12 welcome-message"><span>Hello, {{ cityName }}.</span></h1>
+</div>
 
+<ng-template #noGeoLocation>
+    <h1 class="text-white fw-bold p-5"> Hello, stranger.</h1>
+</ng-template>
+
+<div class="hub-container">
     <div class="panels-row">
         <!-- CATEGORIES  -->
         <div class="col-md-3 p-2 col-sm-10 mx-sm-auto col-12">
