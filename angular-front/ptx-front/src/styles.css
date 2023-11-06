@@ -34,15 +34,15 @@ h6 {
 :root {
     /* --background-black: #262626; */
     --background-black: #000000;
-    --black-2: #0D0D0D;
+    --black-2: #181818;
     --black-3: #242424;
     /* --background-grey: #4F4F4F; */
-    --background-grey: #006f9b;
-    --yellow-1: #F6D234;
-    --blue-1: #3389D0;
+    --background-grey: #3F2E3E;
+    --yellow-1: #EFE1D1;
+    --blue-1: #A78295;
     --blue-2: #003058;
-    --purple-1: #5153B7;
-    --purple-2: #6E70EF;
+    --purple-1: #116D6E;
+    --purple-2: #34abad;
 }
 
 .bg-black-2 {
