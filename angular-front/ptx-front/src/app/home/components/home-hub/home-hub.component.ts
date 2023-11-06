@@ -130,7 +130,7 @@ export class HomeHubComponent {
 
             this.weatherSvc.getCityWallpaper(this.cityName).subscribe(x => {
               console.log('WALLPAPER', x[0])
-              this.wallpaperUrl = x[0].urls.raw;
+              this.wallpaperUrl = x[0].urls.regular;
               this.showWallpaper = true;
             })
           });

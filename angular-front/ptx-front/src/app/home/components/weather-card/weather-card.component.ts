@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { WeatherClassEnum } from 'src/app/shared/models/weather-class.enum';
 import { WeatherClassService } from 'src/app/shared/services/weather-class.service';
 import { environment } from 'src/environments/environment';
@@ -11,6 +11,8 @@ import { Weather } from '../../models/weather.model';
   styleUrls: ['./weather-card.component.css']
 })
 export class WeatherCardComponent {
+
+  @Input() cityName: string = '';
 
   // TODO: option to change city
 
@@ -70,8 +72,17 @@ export class WeatherCardComponent {
 
   constructor(private weatherClass: WeatherClassService, private weatherSvc: WeatherService) {
     if (!environment.localMode) {
-      this.getCurrentWeather();
-      this.getHourlyWeather();
+      if (this.cityName) {
+        this.getCityKey();
+      }
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (!environment.localMode) {
+      if (changes['cityName'].currentValue && changes['cityName'].currentValue !== changes['cityName'].previousValue) {
+        this.getCityKey();
+      }
     }
   }
 
@@ -88,6 +99,14 @@ export class WeatherCardComponent {
   getHourlyWeather() {
     this.weatherSvc.getHourly(this.cityKey).subscribe((res: Weather[]) => {
       this.hourlyWeatherList = res;
+    })
+  }
+
+  getCityKey() {
+    this.weatherSvc.getCityKey(this.cityName).subscribe((res: any) => {
+      this.cityKey = res[0].Key;
+      this.getCurrentWeather();
+      this.getHourlyWeather();
     })
   }
 }

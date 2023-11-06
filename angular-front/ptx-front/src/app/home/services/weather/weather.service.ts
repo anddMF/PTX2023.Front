@@ -47,7 +47,7 @@ export class WeatherService {
     let queryParams = new HttpParams();
     queryParams = queryParams.append('q', query);
 
-    return this.http.get<Weather>(environment.apiBaseUrl + '/weather/city', {params: queryParams})
+    return this.http.get(environment.apiBaseUrl + '/weather/city', {params: queryParams})
   }
 
   getCurrent(cityKey: number) {
