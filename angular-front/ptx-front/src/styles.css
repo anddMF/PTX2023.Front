@@ -76,3 +76,13 @@ h6 {
 mat-icon {
     vertical-align: middle;
 }
+
+button {
+    transition: 0.25s !important;
+}
+
+.btn-raise:hover,
+.btn-raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em #000000 !important;
+  transform: translateY(-0.25em);
+}

@@ -97,5 +97,25 @@ img {
 
 .welcome-message span {
   background-color: black;
-  padding: 0.25rem !important;
+  padding: 0.5rem !important;
+  border-radius: 5px;
+}
+
+.btn-clean {
+  background-color: var(--black-2);
+  font-weight: bold !important;
+  color: white;
+  margin-right: auto !important;
+}
+
+.btn-search {
+  background-color: var(--yellow-1);
+  font-weight: bold;
+  color: black;
+  margin-right: auto !important;
+}
+
+.btn-clean:hover {
+  border-style: solid;
+  border-color: #3f3f3f;
 }
