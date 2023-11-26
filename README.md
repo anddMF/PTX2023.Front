@@ -2,10 +2,10 @@
 
 Frontend for the [PTX2023](https://github.com/anddMF/PTX2023) project.
 
-- [ ] API integration
-- [ ] news feed
-- [ ] weather forecast
-- [ ] currency conversion
+- [x] API integration
+- [x] news feed
+- [x] weather forecast
+- [x] currency conversion
 - [ ] grocery list with a twist
 
 ## References
