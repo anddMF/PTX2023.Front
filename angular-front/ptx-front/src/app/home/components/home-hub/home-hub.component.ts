@@ -4,6 +4,7 @@ import { NewsService } from '../../services/news/news.service';
 import { NewsFilter } from '../../models/news-filter.model';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from '../../services/weather/weather.service';
+import { TrdService } from '../../services/trd/trd.service';
 
 interface CategoryButton {
   id: number;
@@ -74,27 +75,33 @@ export class HomeHubComponent {
   wallpaperUrl: string = '';
   cityName: string = '';
 
-  constructor(private newsSvc: NewsService, private weatherSvc: WeatherService, private http: HttpClient) {
+  constructor(private newsSvc: NewsService, private weatherSvc: WeatherService, private trdSvc: TrdService) {
     this.getLocation();
    }
 
-  changeSortType(selected: Dropdown) {
-    this.sortType = selected
+  changeSortType(selected: Dropdown): void {
+    this.sortType = selected;
   }
 
-  changeCountry(selected: Dropdown) {
+  changeCountry(selected: Dropdown): void {
     this.country = selected;
   }
 
-  setActiveCategory(clickedCategory: CategoryButton) {
+  setActiveCategory(clickedCategory: CategoryButton): void {
     clickedCategory.active = !clickedCategory.active;
   }
 
-  cleanFilters() {
+  cleanFilters(): void {
     this.categories.forEach(x => x.active = false);
   }
 
-  getNews() {
+  getTrdEvents(): void {
+    this.trdSvc.getLastEvents().subscribe(x => {
+      console.log('events', x);
+    })
+  }
+
+  getNews(): void {
     let foundCategories = this.categories.filter(x => x.active).map(y => { return y.name });
     const selectedCategories = foundCategories ? foundCategories : undefined;
     const filter: NewsFilter = {
@@ -103,9 +110,8 @@ export class HomeHubComponent {
       categories: selectedCategories
     };
 
-    this.newsSvc.getNews(filter).subscribe(x => {
-      console.log(x)
-      this.mockNews = x
+    this.newsSvc.getNews(filter).subscribe(news => {
+      this.mockNews = news;
     })
   }
 
@@ -119,24 +125,21 @@ export class HomeHubComponent {
   }
 
   getLocation(): void {
-    console.log(navigator.geolocation)
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position)=> {
 
-          this.weatherSvc.getCityName(position.coords.latitude, position.coords.longitude).subscribe(x => {
-            console.log(x)
-            console.log(x.city)
-            this.cityName = x.city;
+          this.weatherSvc.getCityName(position.coords.latitude, position.coords.longitude).subscribe(region => {
+            this.cityName = region.city;
 
-            this.weatherSvc.getCityWallpaper(this.cityName).subscribe(x => {
-              console.log('WALLPAPER', x[0])
-              this.wallpaperUrl = x[0].urls.regular;
+            this.weatherSvc.getCityWallpaper(this.cityName).subscribe(wallpaper => {
+              console.log('WALLPAPER', wallpaper[0])
+              this.wallpaperUrl = wallpaper[0].urls.regular;
               this.showWallpaper = true;
             })
           });
         });
     } else {
-       this.cityName = ''
+       this.cityName = '';
     }
   }
 

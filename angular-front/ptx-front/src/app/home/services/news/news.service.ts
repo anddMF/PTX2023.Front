@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NewsFilter } from '../../models/news-filter.model';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getNews(filter: NewsFilter) {
+  getNews(filter: NewsFilter): Observable<Object> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append('countries', filter.country);
     queryParams = queryParams.append('categories', filter.categories?.length ? this.listToQueryParam(filter.categories) : '');
@@ -21,7 +22,6 @@ export class NewsService {
   }
 
   listToQueryParam(params: string[]): string {
-    console.log('CAIU')
     let result = params[0];
     for (let i = 1; i < params.length - 1; i++) {
       const currentParam = params[i];

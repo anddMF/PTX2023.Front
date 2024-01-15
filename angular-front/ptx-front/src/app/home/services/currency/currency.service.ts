@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Currency } from '../../models/currency.model';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class CurrencyService {
     withCredentials?: boolean,
   }
 
-  getCurrency(from: string, to: string) {
+  getCurrency(from: string, to: string): Observable<Currency> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append('from', from);
     queryParams = queryParams.append('to', to);
