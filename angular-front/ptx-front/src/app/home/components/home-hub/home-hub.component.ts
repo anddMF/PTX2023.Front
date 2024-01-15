@@ -4,7 +4,7 @@ import { NewsService } from '../../services/news/news.service';
 import { NewsFilter } from '../../models/news-filter.model';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from '../../services/weather/weather.service';
-import { TrdService } from '../../services/trd/trd.service';
+import { TrdEvent, TrdService } from '../../services/trd/trd.service';
 
 interface CategoryButton {
   id: number;
@@ -75,7 +75,10 @@ export class HomeHubComponent {
   wallpaperUrl: string = '';
   cityName: string = '';
 
+  trdEvents: TrdEvent[] = [];
+
   constructor(private newsSvc: NewsService, private weatherSvc: WeatherService, private trdSvc: TrdService) {
+    this.getTrdEvents();
     this.getLocation();
    }
 
@@ -98,6 +101,7 @@ export class HomeHubComponent {
   getTrdEvents(): void {
     this.trdSvc.getLastEvents().subscribe(x => {
       console.log('events', x);
+      this.trdEvents = x;
     })
   }
 
