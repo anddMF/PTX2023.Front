@@ -119,3 +119,21 @@ img {
   border-style: solid;
   border-color: #3f3f3f;
 }
+
+.bg-trd {
+  background-color: #FBAB7E !important;
+  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%) !important;
+}
+
+.o-position-card {
+  max-width: 170px;
+  border-radius: 15px;
+  padding: 1rem 1rem 0 1rem !important;
+  align-items: center !important;
+
+  /* background-color: #0093E9;
+  background-image: linear-gradient(45deg, #0093E9 0%, #80D0C7 100%); */
+  background-color: #FAD961;
+  background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+  color: black;
+}

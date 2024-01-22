@@ -1,6 +1,6 @@
 <!-- TODO: create single classes for all classes except cols and padding -->
 <div *ngIf="cityName; else noGeoLocation" [ngStyle]="imageAsBackground(wallpaperUrl)" class="wallpaper">
-    <h1 class="col-12 welcome-message"><span>Hello, {{ cityName }}.</span></h1>
+    <h1 class="col-12 welcome-message"><span>Hello from {{ cityName }}.</span></h1>
 </div>
 
 <ng-template #noGeoLocation>
@@ -8,20 +8,42 @@
 </ng-template>
 
 <div class="hub-container">
-    <div class="p-3 m-3 bg-danger">
-        <table class="table">
-            <thead>
+    <div class="bg-dark p-4 mb-2 text-white">
+        <h3 class="fw-bold">open positions</h3>
+        <div class="row ps-4 pe-4">
+            <div class="o-position-card col-2 row">
+                <h3 class="fw-bold col-6 bg-econdary">1INCH</h3> 
+                <h4 class="col-6">$21.12</h4>
+            </div>
+        </div>
+    </div>
+    <div class="bg-trd">
+        <table class="table table-responsive table-dark bg-trd table-hover">
+            <caption class="text-white">List operations</caption>
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col">type</th>
                     <th scope="col">info</th>
                     <th scope="col">date</th>
+                    <th scope="col">asset</th>
+                    <th scope="col">quantity</th>
+                    <th scope="col">initial price</th>
+                    <th scope="col">final price</th>
+                    <th scope="col">total</th>
+                    <th scope="col">valorization</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let event of trdEvents">
                     <td>{{event.name}}</td>
                     <td>{{event.info}}</td>
-                    <td>{{event.moment}}</td>
+                    <td>{{event.moment | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+                    <td>{{event.asset}}</td>
+                    <td>{{event.quantity}}</td>
+                    <td>{{event.initialPrice | number:'1.2-2' }}</td>
+                    <td>{{event.finalPrice | number:'1.2-2' }}</td>
+                    <td>{{event.finalTotal | number:'1.2-2' }}</td>
+                    <td>{{event.valorization}}%</td>
                 </tr>
             </tbody>
         </table>

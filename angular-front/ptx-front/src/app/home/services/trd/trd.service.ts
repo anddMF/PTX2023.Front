@@ -7,6 +7,13 @@ export class TrdEvent {
   id: number;
   name: string;
   info: string;
+  asset: string;
+  initialPrice: number;
+  finalPrice: number;
+  initialTotal: number;
+  finalTotal: number;
+  quantity: number;
+  valorization: number;
   moment: Date;
 }
 

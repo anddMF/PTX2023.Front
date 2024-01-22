@@ -80,7 +80,7 @@ export class HomeHubComponent {
   constructor(private newsSvc: NewsService, private weatherSvc: WeatherService, private trdSvc: TrdService) {
     this.getTrdEvents();
     this.getLocation();
-   }
+  }
 
   changeSortType(selected: Dropdown): void {
     this.sortType = selected;
@@ -99,10 +99,15 @@ export class HomeHubComponent {
   }
 
   getTrdEvents(): void {
-    this.trdSvc.getLastEvents().subscribe(x => {
-      console.log('events', x);
-      this.trdEvents = x;
-    })
+    this.trdSvc.getLastEvents().subscribe({
+      next: (events) => this.handleTrdEvents(events),
+      error: (err) => console.log(err) // TODO: add error message or treatment
+    });
+  }
+
+  handleTrdEvents(events: TrdEvent[]) {
+    console.log('EVENTS', events);
+    this.trdEvents = events;
   }
 
   getNews(): void {
@@ -130,20 +135,20 @@ export class HomeHubComponent {
 
   getLocation(): void {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position)=> {
+      navigator.geolocation.getCurrentPosition((position) => {
 
-          this.weatherSvc.getCityName(position.coords.latitude, position.coords.longitude).subscribe(region => {
-            this.cityName = region.city;
+        this.weatherSvc.getCityName(position.coords.latitude, position.coords.longitude).subscribe(region => {
+          this.cityName = region.city;
 
-            this.weatherSvc.getCityWallpaper(this.cityName).subscribe(wallpaper => {
-              console.log('WALLPAPER', wallpaper[0])
-              this.wallpaperUrl = wallpaper[0].urls.regular;
-              this.showWallpaper = true;
-            })
-          });
+          this.weatherSvc.getCityWallpaper(this.cityName).subscribe(wallpaper => {
+            console.log('WALLPAPER', wallpaper[0])
+            this.wallpaperUrl = wallpaper[0].urls.regular;
+            this.showWallpaper = true;
+          })
         });
+      });
     } else {
-       this.cityName = '';
+      this.cityName = '';
     }
   }
 
