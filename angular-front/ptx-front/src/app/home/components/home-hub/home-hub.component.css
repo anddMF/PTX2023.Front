@@ -128,7 +128,7 @@ img {
 .o-position-card {
   max-width: 170px;
   border-radius: 15px;
-  padding: 1rem 1rem 0 1rem !important;
+  padding: .7rem .7rem .7rem .7rem !important;
   align-items: center !important;
   margin-right: 30px;
   cursor: crosshair;
@@ -142,4 +142,15 @@ img {
   & b {
     margin-right: 6px !important;
   }
+}
+
+.c-position-card {
+  background: linear-gradient(230.29deg, #160F2B 7.48%, rgba(29, 0, 113, 0.99) 88.89%);
+  border-radius: 15px;
+
+  padding: .5rem .5rem .5rem .5rem !important;
+  margin-right: 30px;
+  align-items: center !important;
+
+  max-width: 100px;
 }
