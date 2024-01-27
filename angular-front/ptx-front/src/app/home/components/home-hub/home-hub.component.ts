@@ -12,6 +12,16 @@ interface CategoryButton {
   active: boolean;
 }
 
+export enum TrdEventType {
+  BUY = 'BUY',
+  SELL = 'SELL',
+  INFO = 'INFOR',
+  ERROR = 'ERROR',
+  START = 'START',
+  FINISH = 'FINISH',
+  FORCESELL = 'FORCESELL'
+}
+
 @Component({
   selector: 'app-home-hub',
   templateUrl: './home-hub.component.html',
@@ -76,6 +86,8 @@ export class HomeHubComponent {
   cityName: string = '';
 
   trdEvents: TrdEvent[] = [];
+  trdOpenPositions: TrdEvent[] = [];
+  trdClosedPositions: TrdEvent[] = [];
 
   constructor(private newsSvc: NewsService, private weatherSvc: WeatherService, private trdSvc: TrdService) {
     this.getTrdEvents();
@@ -108,6 +120,27 @@ export class HomeHubComponent {
   handleTrdEvents(events: TrdEvent[]) {
     console.log('EVENTS', events);
     this.trdEvents = events;
+    this.extractOpenPositions();
+  }
+
+  // TODO: maybe add a date validation for the second get and beyond, that way I can update only the open positions and not request everything again
+  extractOpenPositions() {
+    for (let i = 0; i < this.trdEvents.length; i++) {
+      const element = this.trdEvents[i];
+      switch (element.name) {
+        case TrdEventType.BUY:
+          this.trdOpenPositions.push(element);
+          break;
+        case TrdEventType.SELL:
+          const foundIndex = this.trdOpenPositions.findIndex(position => position.asset === element.asset && position.quantity === element.quantity && position.initialPrice === element.initialPrice);
+          this.trdClosedPositions.push(element);
+          if (foundIndex >= 0) 
+            this.trdOpenPositions.splice(foundIndex, 1);
+          break;
+        default:
+          break;
+      }
+    }
   }
 
   getNews(): void {

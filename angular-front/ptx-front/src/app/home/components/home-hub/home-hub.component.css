@@ -130,10 +130,16 @@ img {
   border-radius: 15px;
   padding: 1rem 1rem 0 1rem !important;
   align-items: center !important;
+  margin-right: 30px;
+  cursor: crosshair;
 
   /* background-color: #0093E9;
   background-image: linear-gradient(45deg, #0093E9 0%, #80D0C7 100%); */
   background-color: #FAD961;
   background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
   color: black;
+
+  & b {
+    margin-right: 6px !important;
+  }
 }

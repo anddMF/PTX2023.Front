@@ -11,9 +11,8 @@
     <div class="bg-dark p-4 mb-2 text-white">
         <h3 class="fw-bold">open positions</h3>
         <div class="row ps-4 pe-4">
-            <div class="o-position-card col-2 row">
-                <h3 class="fw-bold col-6 bg-econdary">1INCH</h3> 
-                <h4 class="col-6">$21.12</h4>
+            <div *ngFor="let position of trdOpenPositions" class="o-position-card col-2 row">
+                <h3 class="p-0 col-12 text-center "><b>{{ position.asset.replace('USDT', '') }}</b>  ${{ position.initialTotal }} </h3> 
             </div>
         </div>
     </div>
