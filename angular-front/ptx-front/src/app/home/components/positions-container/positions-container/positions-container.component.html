@@ -1,0 +1,59 @@
+<div class="bg-dark rounded p-4 mb-2 text-white positions-row">
+    <div class="col-md-5 mt-1">
+        <h3 class="fw-bold mb-1">open positions</h3>
+        <div class="row ps-4 pe-4">
+            <div *ngFor="let position of trdOpenPositions" class="o-position-card mt-1">
+                <h3 class="p-0 col-12 text-center "><b>{{ position.asset.replace('USDT', '') }}</b> ${{
+                    position.initialTotal }} </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mt-1">
+        <h3 class="fw-bold">recently closed positions</h3>
+        <div class="row ps-4 pe-4">
+            <div *ngFor="let position of trdClosedPositions | slice:0:6" class="c-position-card mt-1 row">
+                <h4 class="p-0 text-center fw-bold">{{ position.asset.replace('USDT', '') }} <br>
+                    <p [class]="position.valorization > 0 ? 'text-success' : 'text-danger'">
+                        {{ position.valorization > 0 ? '+' + position.valorization : position.valorization }}%
+                    </p>
+                </h4>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-sm btn-secondary col-md-2 mt-4" (click)="showTable = !showTable">
+        see all 
+    </button>
+
+</div>
+
+<div *ngIf="showTable" class="mt-2 p-1">
+    <table class="table table-stripe table-responsive table-dark table-hover text-center">
+        <thead class="p-0">
+            <tr>
+                <th scope="col">type</th>
+                <th scope="col">info</th>
+                <th scope="col">date</th>
+                <th scope="col">asset</th>
+                <th scope="col">quantity</th>
+                <th scope="col">initial price</th>
+                <th scope="col">final price</th>
+                <th scope="col">total</th>
+                <th scope="col">valorization</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of trdEvents" class="event-stripe">
+                <td>{{event.name}}</td>
+                <td>{{event.info}}</td>
+                <td>{{event.moment | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+                <td>{{event.asset}}</td>
+                <td>{{event.quantity}}</td>
+                <td>{{event.initialPrice | number:'1.2-2' }}</td>
+                <td>{{event.finalPrice | number:'1.2-2' }}</td>
+                <td>{{event.finalTotal | number:'1.2-2' }}</td>
+                <td>{{event.valorization}}%</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
