@@ -12,6 +12,17 @@
   flex-wrap: wrap;
 }
 
+.panels-button {
+  cursor: pointer;
+  font-weight: bold;
+  color: #5a5a5a;
+  border: none !important;
+}
+
+.panels-button:hover {
+  color: white;
+}
+
 .search-input {
   background-color: var(--black-2);
   border: none;

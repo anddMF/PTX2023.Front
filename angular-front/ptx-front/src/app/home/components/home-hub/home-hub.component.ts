@@ -70,6 +70,7 @@ export class HomeHubComponent {
   country: Dropdown = this.dropdownCountryList[0];
 
   showWallpaper: Boolean = true;
+  showPanels: Boolean = true;
   wallpaperUrl: string = '';
   cityName: string = '';
 

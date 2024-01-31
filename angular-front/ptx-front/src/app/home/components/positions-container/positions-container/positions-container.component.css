@@ -51,9 +51,10 @@ table {
 .op-button {
   cursor: pointer;
   font-weight: bold;
+  color: #5a5a5a;
+  border: none !important;
 }
 
 .op-button:hover {
   color: white;
-  
 }

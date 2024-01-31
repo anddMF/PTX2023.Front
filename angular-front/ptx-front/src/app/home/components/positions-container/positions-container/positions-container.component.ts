@@ -13,8 +13,8 @@ export class PositionsContainerComponent {
   trdOpenPositions: TrdEvent[] = [];
   trdClosedPositions: TrdEvent[] = [];
 
-  showTable = false;
-  showContainer = false;
+  showTable: Boolean = false;
+  showContainer: Boolean = false;
 
   constructor(private trdSvc: TrdService) {
     this.getTrdEvents();

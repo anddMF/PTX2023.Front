@@ -9,8 +9,9 @@
 
 <div class="hub-container">
     <app-positions-container></app-positions-container>
-    
-    <div class="panels-row">
+    <hr>
+    <button class="btn btn-lg panels-button" (click)="showPanels = !showPanels">.panels</button>
+    <div *ngIf="showPanels" class="panels-row">
         <!-- CATEGORIES  -->
         <div class="col-md-3 p-2 col-sm-10 mx-sm-auto col-12">
             <div class="rounded bg-grey text-white shadow p-3">
