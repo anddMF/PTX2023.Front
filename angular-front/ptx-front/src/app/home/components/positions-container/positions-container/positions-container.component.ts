@@ -14,7 +14,7 @@ export class PositionsContainerComponent {
   trdClosedPositions: TrdEvent[] = [];
 
   showTable: Boolean = false;
-  showContainer: Boolean = false;
+  showContainer: Boolean = true;
 
   constructor(private trdSvc: TrdService) {
     this.getTrdEvents();
@@ -35,6 +35,8 @@ export class PositionsContainerComponent {
 
   // TODO: maybe add a date validation for the second get and beyond, that way I can update only the open positions and not request everything again
   extractOpenPositions() {
+    this.trdOpenPositions = [];
+    this.trdClosedPositions = [];
     for (let i = 0; i < this.trdEvents.length; i++) {
       const element = this.trdEvents[i];
       switch (element.name) {
