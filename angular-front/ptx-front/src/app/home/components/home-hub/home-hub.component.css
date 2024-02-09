@@ -15,7 +15,7 @@
 .panels-button {
   cursor: pointer;
   font-weight: bold;
-  color: #5a5a5a;
+  color: var(--teal-1);
   border: none !important;
 }
 

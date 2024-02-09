@@ -1,10 +1,10 @@
 <!-- TODO: create single classes for all classes except cols and padding -->
 <div *ngIf="cityName; else noGeoLocation" [ngStyle]="imageAsBackground(wallpaperUrl)" class="wallpaper">
-    <h1 class="col-12 welcome-message"><span>Hello from {{ cityName }}.</span></h1>
+    <h1 class="col-12 welcome-message underline-teal"><span>Hello from {{ cityName }}.</span></h1>
 </div>
 
 <ng-template #noGeoLocation>
-    <h1 class="text-white fw-bold p-5"> Hello, stranger.</h1>
+    <h1 class="text-white fw-bold p-5 underline-teal"> Hello, stranger.</h1>
 </ng-template>
 
 <div class="hub-container">

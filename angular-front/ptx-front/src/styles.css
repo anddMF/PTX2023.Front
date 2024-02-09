@@ -4,7 +4,7 @@
 html,
 body {
     height: 100%;
-    background: var(--background-black);
+    background: var(--black-2);
 }
 
 body {
@@ -34,7 +34,7 @@ h6 {
 :root {
     /* --background-black: #262626; */
     --background-black: #000000;
-    --black-2: #181818;
+    --black-2: #0e0e0e;
     --black-3: #242424;
     /* --background-grey: #4F4F4F; */
     --background-grey: #3F2E3E;
@@ -43,6 +43,9 @@ h6 {
     --blue-2: #003058;
     --purple-1: #116D6E;
     --purple-2: #34abad;
+    --teal-1: #29c495;
+    /* --teal-1: #00505a; */
+    --green-1: #2f4f4f;
 }
 
 .bg-black-2 {
@@ -73,6 +76,10 @@ h6 {
     background-color: var(--purple-2) !important;
 }
 
+.bg-green-1 {
+    background-color: var(--green-1) !important;
+}
+
 mat-icon {
     vertical-align: middle;
 }
@@ -89,4 +96,8 @@ button {
 
 h1,h2,h3,h4,p {
   margin: 0 0 0 !important;
+}
+
+.underline-teal {
+    text-decoration: underline var(--teal-1);
 }
