@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TrdEvent, TrdEventType } from 'src/app/home/models/trd-event.model';
 import { TrdService } from 'src/app/home/services/trd/trd.service';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-positions-container',
@@ -32,6 +33,16 @@ export class PositionsContainerComponent {
     this.trdEvents = events;
     this.extractOpenPositions();
   }
+
+  downloadOperationsCsv(data: any) {
+    const header = Object.keys(data[0]);
+    let csv = data.map((row: any) => header.map(fieldName => JSON.stringify(row[fieldName], (key, value) => value === null ? '-' : value)).join(','));
+    csv.unshift(header.join(','));
+    let csvArray = csv.join('\r\n');
+
+    var blob = new Blob([csvArray], {type: 'text/csv' })
+    saveAs(blob, "REPORT_positions.csv");
+}
 
   // TODO: maybe add a date validation for the second get and beyond, that way I can update only the open positions and not request everything again
   extractOpenPositions() {
