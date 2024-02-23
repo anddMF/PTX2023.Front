@@ -108,6 +108,13 @@ export class HomeHubComponent {
     })
   }
 
+  // TODO: adapt object from filters to create query
+  getGptNews(): void {
+    this.newsSvc.getNewsGpt('main news in Brazil today').subscribe(response => {
+      console.log('GPT GPT', response)
+    })
+  }
+
   imageAsBackground(imageUrl: string) {
     const styleObj = { 'background-image': `url("${imageUrl}")` };
     return styleObj;

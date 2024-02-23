@@ -21,6 +21,13 @@ export class NewsService {
     return this.http.get(environment.apiBaseUrl + '/news', {params: queryParams});
   }
 
+  getNewsGpt(query: string): Observable<Object> {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('message', query)
+
+    return this.http.get(environment.apiBaseUrl + '/gpt', {params: queryParams});
+  }
+
   listToQueryParam(params: string[]): string {
     let result = params[0];
     for (let i = 1; i < params.length - 1; i++) {
