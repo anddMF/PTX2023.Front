@@ -19,7 +19,7 @@ import { WeatherCardComponent } from './home/components/weather-card/weather-car
 import { RoundNumberPipe } from './shared/services/round-number.pipe';
 import { CurrencyCardComponent } from './home/components/currency-card/currency-card.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PositionsContainerComponent } from './home/components/positions-container/positions-container/positions-container.component';
+import { PositionsContainerComponent } from './home/components/positions-container/positions-container.component';
 
 @NgModule({
   declarations: [
