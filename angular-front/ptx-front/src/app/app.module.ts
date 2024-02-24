@@ -20,6 +20,7 @@ import { RoundNumberPipe } from './shared/services/round-number.pipe';
 import { CurrencyCardComponent } from './home/components/currency-card/currency-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PositionsContainerComponent } from './home/components/positions-container/positions-container.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PositionsContainerComponent } from './home/components/positions-contain
     NgFor, 
     MatInputModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MarkdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

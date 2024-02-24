@@ -3,6 +3,7 @@ import { Dropdown } from 'src/app/shared/models/dropdown.model';
 import { NewsService } from '../../services/news/news.service';
 import { NewsFilter } from '../../models/news-filter.model';
 import { WeatherService } from '../../services/weather/weather.service';
+import { GptNews } from '../../models/gpt-news.model';
 
 interface CategoryButton {
   id: number;
@@ -74,6 +75,8 @@ export class HomeHubComponent {
   wallpaperUrl: string = '';
   cityName: string = '';
 
+  gptNewsText: string = '';
+
   constructor(private newsSvc: NewsService, private weatherSvc: WeatherService) {
     this.getLocation();
   }
@@ -110,8 +113,12 @@ export class HomeHubComponent {
 
   // TODO: adapt object from filters to create query
   getGptNews(): void {
-    this.newsSvc.getNewsGpt('main news in Brazil today').subscribe(response => {
-      console.log('GPT GPT', response)
+    this.newsSvc.getNewsGpt('top 6 news in Brazil today').subscribe(response => {
+      const news = response as GptNews[];
+      console.log('GPT GPT', news)
+      // TODO: add source links at the end using sourceAttributions list 
+      // [BBC News Brazil section](link)
+      this.gptNewsText = news[0].text;
     })
   }
 
