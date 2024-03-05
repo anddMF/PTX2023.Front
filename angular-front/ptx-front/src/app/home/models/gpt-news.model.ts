@@ -1,10 +1,10 @@
 export interface GptNews {
-    text: string;
-    timestamp: Date;
-    sourceAttributions: SourceAttribution[];
+    body: BodyMessage[];
 }
 
-export interface SourceAttribution {
-    providerDisplayName: string;
-    seeMoreUrl: string;
+export interface BodyMessage {
+    id?: string;
+    text: string;
+    type: string;
+    wrap: boolean;
 }

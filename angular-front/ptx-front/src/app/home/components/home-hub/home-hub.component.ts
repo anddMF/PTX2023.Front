@@ -79,6 +79,7 @@ export class HomeHubComponent {
 
   constructor(private newsSvc: NewsService, private weatherSvc: WeatherService) {
     this.getLocation();
+    this.getGptNews();
   }
 
   changeSortType(selected: Dropdown): void {
@@ -114,11 +115,8 @@ export class HomeHubComponent {
   // TODO: adapt object from filters to create query
   getGptNews(): void {
     this.newsSvc.getNewsGpt('top 6 news in Brazil today').subscribe(response => {
-      const news = response as GptNews[];
-      console.log('GPT GPT', news)
-      // TODO: add source links at the end using sourceAttributions list 
-      // [BBC News Brazil section](link)
-      this.gptNewsText = news[0].text;
+      const news = response as Array<string>;
+      this.gptNewsText = news.length > 0 ? news[0] : 'A problem occurred fetching the news, try again later.';
     })
   }
 
