@@ -15,44 +15,17 @@
         <!-- NEWS FEED -->
         <div class="col-md-8 col-sm-10 col-12 mx-sm-auto p-2">
             <div class="input-group input-group-sm mb-3">
-                <input type="text" [(ngModel)]="searchText" class="form-control search-input" placeholder="top 6 news in Brazil today">
+                <input type="text" [(ngModel)]="searchText" class="form-control search-input bg-dark" placeholder="top 6 news in Brazil today">
                 <div class="input-group-append">
-                    <button class="btn bg-yellow-1 search-btn" type="button" (click)="getGptNews()" style="border: none;">
+                    <button class="btn search-bar-btn" type="button" (click)="getGptNews()" style="border: none;">
                         <mat-icon fontIcon="search"></mat-icon>
                     </button>
                 </div>
             </div>
-            <div class="news-container">
+            <div class="news-container bg-dark">
                 <markdown [data]="gptNewsText">
                 </markdown>
             </div>
-            <!-- <div *ngFor="let obj of mockNews" class="news-container">
-                <div class="row-flex">
-                    NEWS THUMBNAIL
-                    <div *ngIf="obj.image" class="col-12 p-1 news-thumbnail" [ngStyle]="imageAsBackground(obj.image)">
-                    </div>
-
-                    NEWS TEXT
-                    <div class="col-md-11 p-1 bg-pimary">
-                        <h4 class="f-montserrat fw-bold">{{ obj.title }}</h4>
-
-                        {{ obj.description }}
-                    </div>
-
-                    NEWS SIDE BUTTONS
-                    <div class="col-md-1 p-1">
-                        <button class="btn btn-sm col-11 offset-md-1 ml-auto news-button" (click)="openLink(obj.url)">
-                            <mat-icon fontIcon="feed"></mat-icon>
-                        </button>
-                        <button class="btn btn-sm offset-md-1 col-11 mt-3 news-button">
-                            <mat-icon fontIcon="share"></mat-icon>
-                        </button>
-                        <button class="btn btn-sm offset-md-1 col-11 mt-3 news-button">
-                            <mat-icon fontIcon="bookmark"></mat-icon>
-                        </button>
-                    </div>
-                </div>
-            </div> -->
         </div>
         <div class="p-2 col-md-4 col-sm-10 col-12 mx-sm-auto">
             <app-weather-card [cityName]="cityName"></app-weather-card>

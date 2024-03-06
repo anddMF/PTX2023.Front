@@ -38,15 +38,16 @@ h6 {
     --black-3: #242424;
     /* --background-grey: #4F4F4F; */
     --background-grey: #3F2E3E;
-    --yellow-1: #EFE1D1;
+    --yellow-1: #f033ba;
     --blue-1: #A78295;
     --blue-2: #003058;
     --purple-1: #116D6E;
     --purple-2: #34abad;
     --teal-1: #ffbaa3;
     /* --teal-1: #00505a; */
-    --green-1: #172727;
+    --green-1: #ea8627;
     /* --green-1: #2f4f4f; */
+    --red-1: #f53b3b;
 }
 
 .bg-black-2 {

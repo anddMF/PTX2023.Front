@@ -1,4 +1,4 @@
-<div *ngIf="showContainer" class="p-2 m-2 rounded shadow bg-green-1">
+<div class="p-2 m-2 rounded bg-green-1 positions-container">
     <div class="bg-drk rounded ml-5 p-3 mb-2 text-white row-flex container">
         <div class="col-md-5 mt-1">
             <h3 class="fw-bold mb-1">open positions</h3>
@@ -58,7 +58,8 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-sm text-white mt-1 fw-bold btn-dark" (click)="downloadOperationsCsv(trdEvents)"><mat-icon fontIcon="download"></mat-icon></button>
+            <button class="btn btn-sm text-white fw-bold bg-dark shadow" (click)="downloadOperationsCsv(trdEvents)"><mat-icon fontIcon="download"></mat-icon></button>
+            <button class="btn btn-sm btn-close-table shadow" (click)="showTable = false"><mat-icon fontIcon="close"></mat-icon></button>
         </div>
     </div>
 </div>
