@@ -24,7 +24,7 @@
 }
 
 .search-input {
-  background-color: var(--black-2);
+  background-color: var(--background-grey);
   border: none;
   border-radius: 10px;
 }

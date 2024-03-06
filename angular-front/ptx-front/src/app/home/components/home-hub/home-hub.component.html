@@ -7,67 +7,21 @@
     <h1 class="text-white fw-bold p-5 underline-teal"> Hello, stranger.</h1>
 </ng-template>
 
-<div class="hub-container">
+<div class="container">
     <app-positions-container></app-positions-container>
     <hr>
-    <button class="btn btn-lg panels-button" (click)="showPanels = !showPanels">.panels</button>
+    <!-- <button class="btn btn-lg panels-button underline-teal" (click)="showPanels = !showPanels">panels</button> -->
     <div *ngIf="showPanels" class="panels-row">
-        <!-- CATEGORIES  -->
-        <div class="col-md-3 p-2 col-sm-10 mx-sm-auto col-12">
-            <div class="rounded bg-grey text-white shadow p-3">
-
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control search-input" placeholder="search with keywords">
-                    <div class="input-group-append">
-                        <button class="btn bg-yellow-1 search-btn" type="button">
-                            <mat-icon fontIcon="search"></mat-icon>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="row-flex">
-                    <label class="col-12 col-md-4 col-sm-10 dropdown-label">sort by:</label>
-                    <div class="col-12 col-md-8 col-sm-10">
-                        <app-dropdown-basic [dropdownList]="dropdownSortList"
-                            (selected)="changeSortType($event)"></app-dropdown-basic>
-                    </div>
-                </div>
-
-                <div class="row-flex mt-3">
-                    <label class="col-12 col-md-4 col-sm-10 dropdown-label">country:</label>
-                    <div class="col-12 col-md-8 col-sm-10">
-                        <app-dropdown-basic [dropdownList]="dropdownCountryList"
-                            (selected)="changeCountry($event)"></app-dropdown-basic>
-                    </div>
-                </div>
-
-                <div class="row-flex mt-3">
-                    <label class="col-12 dropdown-label">categories:</label>
-                    <div class="row-flex align-content-center p-2 bg-secodary col-12">
-                        <button *ngFor="let category of categories"
-                            [ngClass]="{'selected-category': category.active === true }"
-                            (click)="setActiveCategory(category)"
-                            class="btn btn-raise col-5 mt-2 mx-auto bg-blue-1 text-white btn-sm">
-                            {{ category.name }}
-                        </button>
-                    </div>
-                </div>
-
-                <div class="row-flex mt-4">
-                    <button class="btn btn-raise btn-clean col-5" (click)="cleanFilters()">
-                        clean
-                        <mat-icon fontIcon="delete"></mat-icon>
-                    </button>
-                    <button class="btn btn-raise btn-search col-5" (click)="getNews()">
-                        search
+        <!-- NEWS FEED -->
+        <div class="col-md-8 col-sm-10 col-12 mx-sm-auto p-2">
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" [(ngModel)]="searchText" class="form-control search-input" placeholder="top 6 news in Brazil today">
+                <div class="input-group-append">
+                    <button class="btn bg-yellow-1 search-btn" type="button" (click)="getGptNews()" style="border: none;">
                         <mat-icon fontIcon="search"></mat-icon>
                     </button>
                 </div>
             </div>
-        </div>
-
-        <!-- NEWS FEED -->
-        <div class="col-md-6 col-sm-10 col-12 mx-sm-auto p-2">
             <div class="news-container">
                 <markdown [data]="gptNewsText">
                 </markdown>
@@ -100,7 +54,7 @@
                 </div>
             </div> -->
         </div>
-        <div class="p-2 col-md-3 col-sm-10 col-12 mx-sm-auto">
+        <div class="p-2 col-md-4 col-sm-10 col-12 mx-sm-auto">
             <app-weather-card [cityName]="cityName"></app-weather-card>
 
             <app-currency-card></app-currency-card>
