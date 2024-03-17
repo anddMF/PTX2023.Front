@@ -34,7 +34,7 @@ export class PositionsContainerComponent {
     this.extractOpenPositions();
   }
 
-  downloadOperationsCsv(data: any) {
+  downloadToCsv(data: any) {
     const header = Object.keys(data[0]);
     let csv = data.map((row: any) => header.map(fieldName => JSON.stringify(row[fieldName], (key, value) => value === null ? '-' : value)).join(','));
     csv.unshift(header.join(','));

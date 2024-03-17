@@ -1,6 +1,7 @@
 .positions-container {
-  background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #3dacec 100%);
+  /* background-color: #002c46; */
+  background: linear-gradient(230.29deg, #2c166e 7.48%, #1d0071fc 88.89%);
+  /* background-image: linear-gradient(160deg, #0093E9 0%, #3dacec 100%); */
   /* box-shadow: 0px 0px 50px 12px rgba(0,147,233,1); */
 }
 
@@ -17,25 +18,30 @@
   margin-right: 30px;
   cursor: crosshair;
 
-  /* background-color: #0093E9;
-    background-image: linear-gradient(45deg, #0093E9 0%, #80D0C7 100%); */
-  background-color: #FAD961;
-  background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #3dacec 100%);
+  /* background-color: #FAD961;
+  background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%); */
   color: black;
+  transition: all .3s;
 
   b {
     margin-right: 6px !important;
   }
 }
 
-.c-position-card {
-  background: linear-gradient(230.29deg, #160F2B 7.48%, rgba(29, 0, 113, 0.99) 88.89%);
-  border-radius: 15px;
+.o-position-card:hover {
+  box-shadow: 0px 0px 25px 1px #0084ff9c !important;
+}
 
+.c-position-card {
+  /* background: linear-gradient(230.29deg, #160F2B 7.48%, rgba(29, 0, 113, 0.99) 88.89%); */
+  background-color: #0f003a;
+  border-radius: 15px;
+  cursor: crosshair;
   padding: .5rem .5rem .5rem .5rem !important;
   margin-right: 30px;
   align-items: center !important;
-
   max-width: 100px;
 }
 
@@ -67,7 +73,7 @@ table {
   font-size: small !important;
   font-weight: bold;
   font-style: italic;
-  color: #93b3b3;
+  color: #adadad;
 }
 
 .btn-close-table {
@@ -75,4 +81,18 @@ table {
   color: white;
   font-weight: bold;
   background-color: var(--red-1);
+}
+
+.btn-history {
+  box-shadow: 0 0.5rem 1rem #0000005b !important;
+  font-weight: bold;
+  background-color: #0c012b;
+  color: white;
+  transform: all 2s;
+}
+
+.btn-history:hover {
+  color: #111111;
+  background-color: #d4c4ff;
+  box-shadow: 0px 0px 25px 1px #4e0eff !important;
 }
