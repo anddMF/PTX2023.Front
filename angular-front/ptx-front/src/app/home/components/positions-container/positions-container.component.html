@@ -3,10 +3,10 @@
         <div class="col-md-6 mt-1">
             <h3 class="fw-bold mb-1 text-center">open positions</h3>
             <div class="row-flex" >
-                <div *ngFor="let position of trdOpenPositions" class="o-position-card shadow mt-1 mb-1 mx-auto">
+                <div *ngFor="let position of trdOpenPositions" class="o-position-card shadow mt-1 mb-1 ">
                     <h3 class="p-0 col-12 text-center"><b>{{ position.asset.replace('USDT', '') }}</b> 
                     ${{ position.initialTotal }} </h3>
-                    <h5 class="text-center fw-bold" style="color: #0e2533;">{{position.moment | date: 'dd/MM hh:mm:ss'}}</h5>
+                    <h5 class="date-muted">{{position.moment | date: 'dd/MM hh:mm:ss'}}</h5>
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
         <div class="col-md-6 mt-1">
             <h3 class="fw-bold mb-1 text-center">recently closed positions</h3>
             <div class="row-flex">
-                <div *ngFor="let position of trdClosedPositions | slice:0:6" class="c-position-card shadow mt-1 row-flex mx-auto">
+                <div *ngFor="let position of trdClosedPositions | slice:0:6" class="c-position-card shadow mt-1 row-flex ">
                     <h4 class="p-0 text-center fw-bold">{{ position.asset.replace('USDT', '') }} <br>
                         <p [class]="position.valorization > 0 ? 'text-success' : 'text-danger'">
                             {{ position.valorization > 0 ? '+' + position.valorization : position.valorization }}%
@@ -25,7 +25,7 @@
         </div>
         
         <button class="btn btn-sm btn-history col-md-2 mt-4" (click)="showTable = !showTable">
-            {{ showTable ? 'close history' : 'show history'}}
+            {{ showTable ? 'close all' : 'show all'}} 
         </button>
         <button class="btn btn-sm text-white mt-4 ms-2" (click)="getTrdEvents()"><mat-icon class="rotate" fontIcon="sync"></mat-icon></button>
         <h4 class="col-12 text-subtle">started at {{ trdClosedPositions[0].moment | date: 'dd/MM/yyyy hh:mm:ss'}}</h4>

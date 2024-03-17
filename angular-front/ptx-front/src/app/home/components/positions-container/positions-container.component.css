@@ -28,6 +28,15 @@
   b {
     margin-right: 6px !important;
   }
+
+  h5 {
+    text-align: center !important;
+    font-weight: bold;
+  }
+
+  .date-muted {
+    color: #0e2533;
+  }
 }
 
 .o-position-card:hover {
