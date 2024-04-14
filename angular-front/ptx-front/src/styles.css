@@ -4,7 +4,7 @@
 html,
 body {
     height: 100%;
-    background: var(--black-2);
+    background: var(--black-3);
 }
 
 body {
@@ -35,7 +35,7 @@ h6 {
     /* --background-black: #262626; */
     --background-black: #010104;
     --black-2: #010104;
-    --black-3: #242424;
+    --black-3: #3A3A3A;
     /* --background-grey: #4F4F4F; */
     --background-grey: #3F2E3E;
     --yellow-1: #f033ba;
