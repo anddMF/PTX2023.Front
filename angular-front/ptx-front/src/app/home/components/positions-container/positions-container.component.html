@@ -31,12 +31,35 @@
             </button>
             <button class="btn btn-sm text-white mt-4 ms-2" (click)="getTrdEvents()"><mat-icon class="rotate" fontIcon="sync"></mat-icon></button>
             <h4 class="col-12 text-subtle">started at {{ trdClosedPositions[0].moment | date: 'dd/MM/yyyy hh:mm:ss'}}</h4>
-    
-            
         </div>
     </div>
-
-    <div class="bg-black m-2 rounded shadow" style="padding: 26px !important;">
+    <div class="row-flex mb-3">
+        <div class="col-6-custom p-box positions-container rounded">
+            <div class="row-flex">
+                <h3 class="text-white fw-bold">open positions</h3>
+                <button class="btn btn-sm text-white ml-auto" (click)="getTrdEvents()"><mat-icon class="rotate" fontIcon="sync"></mat-icon></button>
+            </div>
+            <div>
+                <div *ngFor="let position of trdOpenPositions" class="position-row">
+                    <div class="col-2 text-center">
+                        <mat-icon fontIcon="toll"></mat-icon>
+                    </div>
+                    <div class="col-3 text-center">
+                        <h3>{{ position.asset.replace('USDT', '') }}</h3>
+                    </div>
+                    <div class="col-4 bg-warnin text-center ">
+                        <h3 class="cl-gray">{{ position.moment | date: 'dd/MM hh:mm:ss'}}</h3>
+                    </div>
+                    <div class="col-3 text-center">
+                        <h3>${{ position.initialTotal }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6-custom bg-primary ms-auto rounded p-5"></div>
+    </div>
+    
+    <div class="bg-black rounded shadow p-box">
         <div class="row-flex">
             <h2 class="text-white fw-bold">history</h2>
             <button class="btn btn-sm text-danger fw-bold bg-dark ml-auto" (click)="downloadToCsv(trdEvents)"><mat-icon fontIcon="download"></mat-icon></button>
