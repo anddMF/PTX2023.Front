@@ -20,6 +20,7 @@ h4,
 h5,
 h6 {
     font-family: "Montserrat", "Helvetica Neue", sans-serif !important;
+    margin: 0 0 0 !important;
 }
 
 .f-montserrat {
@@ -94,10 +95,6 @@ button {
 .btn-raise:focus {
   box-shadow: 0 0.5em 0.5em -0.4em #000000 !important;
   transform: translateY(-0.10em);
-}
-
-h1,h2,h3,h4,h5,p {
-  margin: 0 0 0 !important;
 }
 
 h4 {

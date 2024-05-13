@@ -40,23 +40,46 @@
                 <button class="btn btn-sm text-white ml-auto" (click)="getTrdEvents()"><mat-icon class="rotate" fontIcon="sync"></mat-icon></button>
             </div>
             <div>
-                <div *ngFor="let position of trdOpenPositions" class="position-row">
-                    <div class="col-2 text-center">
+                <div *ngFor="let position of trdOpenPositions" class="position-line">
+                    <div class="col-2">
                         <mat-icon fontIcon="toll"></mat-icon>
                     </div>
-                    <div class="col-3 text-center">
-                        <h3>{{ position.asset.replace('USDT', '') }}</h3>
+                    <div class="col-3">
+                        <h2>{{ position.asset.replace('USDT', '') }}</h2>
                     </div>
-                    <div class="col-4 bg-warnin text-center ">
-                        <h3 class="cl-gray">{{ position.moment | date: 'dd/MM hh:mm:ss'}}</h3>
+                    <div class="col-4">
+                        <h2 class="cl-gray">{{ position.moment | date: 'dd/MM hh:mm:ss'}}</h2>
                     </div>
-                    <div class="col-3 text-center">
-                        <h3>${{ position.initialTotal }}</h3>
+                    <div class="col-3">
+                        <h2>${{ position.initialTotal }}</h2>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-6-custom bg-primary ms-auto rounded p-5"></div>
+        <div class="col-6-custom bg-black ms-auto p-box rounded">
+            <div class="row-flex">
+                <h3 class="text-white fw-bold">closed positions</h3>
+            </div>
+            <div>
+                <div *ngFor="let position of trdClosedPositions | slice:0:6" class="closed-position-line">
+                    <div class="col-3">
+                        {{ position.asset.replace('USDT', '') }}
+                    </div>
+        
+                    <div class="col-3 cl-gray">
+                        {{position.moment | date: 'dd/MM hh:mm:ss'}}
+                    </div>
+        
+                    <div class="col-3">
+                        ${{ position.finalTotal - position.initialTotal | number:'1.2-2' }}
+                    </div>
+        
+                    <div class="col-3" [class]="position.valorization > 0 ? 'text-success' : 'text-danger'">
+                        {{ position.valorization > 0 ? '+' + position.valorization : position.valorization }}%
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <div class="bg-black rounded shadow p-box">
