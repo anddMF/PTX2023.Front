@@ -7,6 +7,19 @@
   height: 250px;
 }
 
+.positions-inner-container {
+  height: 170px;
+  overflow: scroll;
+}
+
+.closed-positions-container {
+  background-color: var(--black-2);
+  padding: 26px !important;
+  border-radius: 15px;
+  height: 250px;
+  margin-left: auto !important;
+}
+
 .positions-row {
   display: flex;
   flex-wrap: wrap;

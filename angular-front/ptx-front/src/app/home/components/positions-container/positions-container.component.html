@@ -39,7 +39,7 @@
                 <h3 class="text-white fw-bold">open positions</h3>
                 <button class="btn btn-sm text-white ml-auto" (click)="getTrdEvents()"><mat-icon class="rotate" fontIcon="sync"></mat-icon></button>
             </div>
-            <div>
+            <div class="positions-inner-container">
                 <div *ngFor="let position of trdOpenPositions" class="position-line">
                     <div class="col-2">
                         <mat-icon fontIcon="toll"></mat-icon>
@@ -56,11 +56,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-6-custom bg-black ms-auto p-box rounded">
+        <div class="col-6-custom closed-positions-container">
             <div class="row-flex">
                 <h3 class="text-white fw-bold">closed positions</h3>
             </div>
-            <div>
+            <div class="positions-inner-container">
                 <div *ngFor="let position of trdClosedPositions | slice:0:6" class="closed-position-line">
                     <div class="col-3">
                         {{ position.asset.replace('USDT', '') }}
