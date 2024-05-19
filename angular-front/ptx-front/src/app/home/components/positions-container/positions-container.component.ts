@@ -13,6 +13,7 @@ export class PositionsContainerComponent {
   trdEvents: TrdEvent[] = [];
   trdOpenPositions: TrdEvent[] = [];
   trdClosedPositions: TrdEvent[] = [];
+  totalValorization: number = 0;
 
   showTable: Boolean = false;
   showContainer: Boolean = true;
@@ -31,18 +32,9 @@ export class PositionsContainerComponent {
   handleTrdEvents(events: TrdEvent[]) {
     console.log('EVENTS', events);
     this.trdEvents = events;
+    this.totalValorization = this.trdEvents.reduce((sum, item) => sum + item.valorization, 0);
     this.extractOpenPositions();
   }
-
-  downloadToCsv(data: any) {
-    const header = Object.keys(data[0]);
-    let csv = data.map((row: any) => header.map(fieldName => JSON.stringify(row[fieldName], (key, value) => value === null ? '-' : value)).join(','));
-    csv.unshift(header.join(','));
-    let csvArray = csv.join('\r\n');
-
-    var blob = new Blob([csvArray], {type: 'text/csv' })
-    saveAs(blob, "REPORT_positions.csv");
-}
 
   // TODO: maybe add a date validation for the second get and beyond, that way I can update only the open positions and not request everything again
   extractOpenPositions() {
@@ -57,13 +49,23 @@ export class PositionsContainerComponent {
         case TrdEventType.SELL:
           const foundIndex = this.trdOpenPositions.findIndex(position => position.asset === element.asset && position.quantity === element.quantity && position.initialPrice === element.initialPrice);
           this.trdClosedPositions.push(element);
-          if (foundIndex >= 0) 
+          if (foundIndex >= 0)
             this.trdOpenPositions.splice(foundIndex, 1);
           break;
         default:
           break;
       }
     }
+  }
+
+  downloadToCsv(data: any) {
+    const header = Object.keys(data[0]);
+    let csv = data.map((row: any) => header.map(fieldName => JSON.stringify(row[fieldName], (key, value) => value === null ? '-' : value)).join(','));
+    csv.unshift(header.join(','));
+    let csvArray = csv.join('\r\n');
+
+    var blob = new Blob([csvArray], { type: 'text/csv' })
+    saveAs(blob, "REPORT_positions.csv");
   }
 
 }

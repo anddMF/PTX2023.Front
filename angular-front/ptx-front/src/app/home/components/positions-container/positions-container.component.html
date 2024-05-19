@@ -5,19 +5,19 @@
             <div class="row-flex">
                 <h5>run profit</h5>
             </div>
-            <h1 class="fw-bold text-center">+0,7%</h1>
+            <h1 class="fw-bold text-center">{{ totalValorization > 0 ? '+' + totalValorization : totalValorization | number:'1.2-2' }}%</h1>
         </div>
         <div class="col-md-2 col-12 bg-black-2 text-white p-3 me-2 rounded mb-1">
             <div class="row-flex">
                 <h5>started at</h5>
             </div>
-            <h1 class="fw-bold text-center">15/02 10:19</h1>
+            <h1 class="fw-bold text-center">{{ trdEvents[0].moment | date: 'dd/MM hh:mm' }}</h1>
         </div>
         <div class="col-md-1 col-12 p-3 bg-black-2 text-white rounded mb-1">
             <div class="row-flex">
                 <h5>operations</h5>
             </div>
-            <h1 class="fw-bold text-center">15</h1>
+            <h1 class="fw-bold text-center">{{ trdEvents.length - 1 }}</h1>
         </div>
     </div>
     <div class="row-flex">
@@ -48,7 +48,7 @@
                 <h3 class="text-white">closed positions</h3>
             </div>
             <div class="positions-inner-container">
-                <div *ngFor="let position of trdClosedPositions | slice:0:6" class="closed-position-line fw-bold">
+                <div *ngFor="let position of trdClosedPositions" class="closed-position-line fw-bold">
                     <div class="col-3">
                         <h4>{{ position.asset.replace('USDT', '') }}</h4>
                     </div>
